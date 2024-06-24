@@ -7,9 +7,9 @@
 CASTRO is a Python package designed to ...
 
 - **Documentation:** - https://castro.readthedocs.io
-- **Examples and Tutorials** - https://github.com/schenkch/castro/examples
-- **Source code:** - https://github.com/schenkch/castro/src
-- **Bug reports:** - https://github.com/schenkch/castro/issues
+- **Examples and Tutorials** - https://github.com/AMDatIMDEA/castro/examples
+- **Source code:** - https://github.com/AMDatIMDEA/castro/src
+- **Bug reports:** - https://github.com/AMDatIMDEA/castro/issues
 
 It has the following functionality:
 
@@ -23,13 +23,13 @@ It has the following functionality:
 You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO.
 
     cd <installation directory>
-    git clone https://github.com/schenkch/castro.git
+    git clone https://github.com/AMDatIMDEA/castro.git
     cd castro
     python setup.py install
 
 ### Examples and Tutorials
 
-The example problems are in the examples subfolder at https://github.com/schenkch/castro/examples.
+The example problems are in the examples subfolder at https://github.com/AMDatIMDEA/castro/examples.
 
 <br>
 
