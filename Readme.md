@@ -1,7 +1,7 @@
-# <img alt="CASTRO" src="branding/CASTRO-Logo.svg" height="60">
+# <img alt="CASTRO" src="branding/CASTRO-Logo.svg" height="80">
 
-[![](https://img.shields.io/github/license/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro/blob/master/LICENSE)
-[![](https://img.shields.io/github/last-commit/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro)
+[![](https://img.shields.io/github/license/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro/LICENSE)
+[![](https://img.shields.io/github/last-commit/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro/)
 
 
 CASTRO is a Python package designed to ...
