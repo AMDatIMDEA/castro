@@ -2,6 +2,7 @@
 
 [![](https://img.shields.io/github/license/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro/blob/master/LICENSE)
 [![](https://img.shields.io/github/last-commit/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro/)
+[![Documentation Status](https://readthedocs.org/projects/castro/badge/?version=latest)](https://castro.readthedocs.io/en/latest/py-modindex.html)
 
 
 CASTRO is a Python package designed to ...
