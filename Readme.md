@@ -1,7 +1,7 @@
-# <img alt="CASTRO" src="branding/CASTRO-Logo.pdf" height="60">
+# <img alt="CASTRO" src="branding/CASTRO-Logo.svg" height="60">
 
-[![](https://img.shields.io/github/license/schenkch/castro)](https://github.com/schenkch/castro/blob/master/LICENSE)
-[![](https://img.shields.io/github/last-commit/schenkch/castro)](https://github.com/schenkch/castro)
+[![](https://img.shields.io/github/license/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro/blob/master/LICENSE)
+[![](https://img.shields.io/github/last-commit/AMDatIMDEA/castro)](https://github.com/AMDatIMDEA/castro)
 
 
 CASTRO is a Python package designed to ...
@@ -13,7 +13,7 @@ CASTRO is a Python package designed to ...
 
 It has the following functionality:
 
- - 
+ -
 
 
 <br>
@@ -46,10 +46,3 @@ GPL-3
 <br>
 
  - C. Schenk, M. Haranczyk (2024): CASTRO - A novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method
- 
-
-
-
-
-
-
