@@ -20,6 +20,14 @@ src.plot module
       :undoc-members:
       :show-inheritance:
 
+src.utils module
+----------------
+
+   .. automodule:: src.utils
+      :members:
+      :undoc-members:
+      :show-inheritance:
+
 Module contents
 ---------------
 
