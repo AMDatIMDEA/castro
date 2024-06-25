@@ -66,7 +66,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#src.conditionedSampling.stack_samples"><code class="docutils literal notranslate"><span class="pre">stack_samples()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#src-plot-module">src.plot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src-plot-module">src.plot module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.plot.box_kdeplot_samples"><code class="docutils literal notranslate"><span class="pre">box_kdeplot_samples()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.plot.distplot_samples"><code class="docutils literal notranslate"><span class="pre">distplot_samples()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.plot.plot_dimred_2dims_both_methods"><code class="docutils literal notranslate"><span class="pre">plot_dimred_2dims_both_methods()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-src">Module contents</a></li>
 </ul>
 </li>
@@ -421,7 +426,53 @@
 <section id="src-plot-module">
 <h2>src.plot module<a class="headerlink" href="#src-plot-module" title="Permalink to this heading"></a></h2>
 <blockquote>
-<div><span class="target" id="module-src.plot"></span></div></blockquote>
+<div><span class="target" id="module-src.plot"></span><dl class="py function">
+<dt class="sig sig-object py" id="src.plot.box_kdeplot_samples">
+<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">box_kdeplot_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/plot.html#box_kdeplot_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.plot.box_kdeplot_samples" title="Permalink to this definition"></a></dt>
+<dd><p>generates distribution box kde subplots of samples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>samples</strong> (<em>np array</em><em> of </em><em>samples nsamp x ncomponents</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Subplots showing box kde distributions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plot.distplot_samples">
+<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">distplot_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/plot.html#distplot_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.plot.distplot_samples" title="Permalink to this definition"></a></dt>
+<dd><p>generates distribution kde plot of samples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>samples</strong> (<em>np array</em><em> of </em><em>samples nsamp x ncomponents</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Distplot with distributions for different components in different colors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.plot.plot_dimred_2dims_both_methods">
+<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">plot_dimred_2dims_both_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhs_samples_pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhsmdu_samples_pca</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/plot.html#plot_dimred_2dims_both_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.plot.plot_dimred_2dims_both_methods" title="Permalink to this definition"></a></dt>
+<dd><p>generates scatter plot of data conditioned LHS and conditioned LHSMDU samples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>integer</em><em> of </em><em>dimension</em><em> of </em><em>input space</em>) – </p></li>
+<li><p><strong>lhs_samples</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
+<li><p><strong>lhsmdu_samples</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Scatterplot</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
 </section>
 <section id="module-src">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Permalink to this heading"></a></h2>

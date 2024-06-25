@@ -10,8 +10,9 @@ from scipy.stats import qmc
 import lhsmdu
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
-#from sympy.utilities.iterables import multiset_permutations
-#from pathlib import Path  
+from sympy.utilities.iterables import multiset_permutations
+from pathlib import Path  
+#from itertools import permutations
 import time
 import random
 import math
@@ -20,7 +21,7 @@ from itertools import permutations
 from scipy.spatial import minkowski_distance, distance_matrix
 import csv
 from sklearn.preprocessing import StandardScaler
-#import seaborn as sns
+import seaborn as sns
 
 #---------------------------------------------------------------------------------------------------#
 #### Latin Hypercube sampling on domain with variables summing up to 1: Sequentially and permutations such that condition holds (similar to Petelet et al (2010) but there for inequality constraints): 
