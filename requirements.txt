@@ -7,6 +7,6 @@ matplotlib
 lhsmdu
 time
 math
-itertools
+more-itertools
 python-csv
 seaborn
