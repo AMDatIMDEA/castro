@@ -61,7 +61,7 @@ setup(
     install_requires=requirements + [
         'jupyterlab',
         'ipykernel'
-    ],,
+    ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
