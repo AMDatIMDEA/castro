@@ -54,4 +54,8 @@ setup(
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
     },
     setup_requires=['setuptools<58.0.0'],
+    entry_points={
+    'console_scripts': [
+        'castro-jupyter = castro.jupyter:main',
+    ],
 )
