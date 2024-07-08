@@ -3,7 +3,7 @@
 from os import path
 import os
 from setuptools import dist, find_packages, setup
-import versioneer
+#import versioneer
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
