@@ -1,7 +1,7 @@
 numpy
 scipy
 pandas
-random
+python-random
 scikit-learn
 matplotlib
 lhsmdu
