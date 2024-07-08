@@ -12,3 +12,5 @@ python-csv
 seaborn
 jupyterlab
 anyio==3.*
+ipywidgets
+imageio
