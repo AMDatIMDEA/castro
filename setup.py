@@ -34,7 +34,7 @@ setup(
     license='GPL V3',
     keywords='Constrained sequential Latin hypercube (with multidimensional uniformity) sampling',
     packages=[
-        'castro'
+        './'
     ],
     install_requires=required,
     #extras_require={"dev": ["pytest==5.*,>=5.2.0"]},
