@@ -21,12 +21,13 @@ It has the following functionality:
 
 ## Installation
 
-You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO.
+You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO. Ideally you create a virtual environment for that, e.g. by virtualenv name_virtualenv.
 
     cd <installation directory>
     git clone https://github.com/AMDatIMDEA/castro.git
     cd castro
     python setup.py install
+    jupyter lab build
 
 ### Examples and Tutorials
 
