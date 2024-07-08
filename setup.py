@@ -11,14 +11,15 @@ from setuptools import dist
 
 
 readme = ''
+
 here = os.path.abspath(os.path.dirname(__file__))
 readme_path = os.path.join(here, 'README.md')
 if os.path.exists(readme_path):
     with open(readme_path, 'rb') as stream:
         readme = stream.read().decode('utf8')
 
-with open('requirements.txt') as f:
-    required = f.read().splitlines()
+    install_requires=required,
+
 
 setup(
     long_description=readme,
@@ -33,7 +34,10 @@ setup(
     maintainer='Christina Schenk',
     license='GPL V3',
     keywords='Constrained sequential Latin hypercube (with multidimensional uniformity) sampling',
-    install_requires=required,
-    #extras_require={"dev": ["pytest==5.*,>=5.2.0"]},
-
+    packages=find_packages(include=['castro', 'castro.*']),
+    install_requires=requirments,
+    extras_require={
+        'tests': ['pytest', 'codecov', 'pytest-cov'],
+        'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
+    }
 )
