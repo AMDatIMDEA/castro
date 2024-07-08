@@ -55,7 +55,8 @@ setup(
     },
     setup_requires=['setuptools<58.0.0'],
     entry_points={
-    'console_scripts': [
-        'castro-jupyter = castro.jupyter:main',
-    ],
+        'console_scripts': [
+            'castro-jupyter = castro.jupyter:main',
+        ],
+    },
 )
