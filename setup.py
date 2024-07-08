@@ -34,7 +34,6 @@ with open(path.join(here, 'requirements.txt')) as requirements_file:
 
 setup(
     name='castro',
-    version='1.0',
     description='CASTRO is a code for a novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method',
     python_requires='>=3.9',
     project_urls={
