@@ -1,5 +1,5 @@
-numpy
 scipy
+numpy
 pandas
 random2
 scikit-learn
@@ -10,4 +10,3 @@ python-math
 more-itertools
 python-csv
 seaborn
-demjson==2.2.3
