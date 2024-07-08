@@ -15,4 +15,5 @@ anyio==3.*
 ipywidgets
 ipykernel
 imageio
+ipython
 
