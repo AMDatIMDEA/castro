@@ -18,9 +18,6 @@ if os.path.exists(readme_path):
     with open(readme_path, 'rb') as stream:
         readme = stream.read().decode('utf8')
 
-    install_requires=required,
-
-
 setup(
     long_description=readme,
     name='castro',
@@ -35,7 +32,7 @@ setup(
     license='GPL V3',
     keywords='Constrained sequential Latin hypercube (with multidimensional uniformity) sampling',
     packages=find_packages(include=['castro', 'castro.*']),
-    install_requires=requirments,
+    install_requires=requirements,
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
