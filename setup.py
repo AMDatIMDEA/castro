@@ -8,14 +8,13 @@ import versioneer
 
 # Workaround for the `use_2to3` issue
 def remove_use_2to3():
-    import setuptools
-    orig_setup = setuptools.setup
+    orig_setup = setup
 
     def patched_setup(**kwargs):
         kwargs.pop('use_2to3', None)
         return orig_setup(**kwargs)
 
-    setuptools.setup = patched_setup
+    setup = patched_setup
 
 remove_use_2to3()
 
