@@ -6,7 +6,7 @@ sklearn
 matplotlib
 lhsmdu
 time
-math
-more-itertools
+python-math
+python-itertools
 python-csv
 seaborn
