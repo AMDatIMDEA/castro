@@ -2,6 +2,7 @@
 
 from os import path
 import os
+import setuptools
 from setuptools import dist, find_packages, setup
 
 #import versioneer
