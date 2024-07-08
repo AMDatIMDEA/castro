@@ -5,13 +5,18 @@ import os
 from setuptools import dist, find_packages, setup
 
 
-readme = ''
+with open('README.md') as readme_file:
+    readme = readme_file.read()
 
-here = os.path.abspath(os.path.dirname(__file__))
-readme_path = os.path.join(here, 'README.md')
-if os.path.exists(readme_path):
-    with open(readme_path, 'rb') as stream:
-        readme = stream.read().decode('utf8')
+#with open('HISTORY.rst') as history_file:
+#    history = history_file.read()
+
+
+here = path.abspath(path.dirname(__file__))
+with open(path.join(here, 'requirements.txt')) as requirements_file:
+    # Parse requirements.txt, ignoring any commented-out lines.
+    requirements = [line for line in requirements_file.read().splitlines()
+                    if not line.startswith('#')]
 
 setup(
     long_description=readme,
