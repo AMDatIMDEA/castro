@@ -4,6 +4,9 @@ from os import path
 import os
 import setuptools
 from setuptools import dist, find_packages, setup
+from setuptools.command.install import install
+import subprocess
+import sys
 
 #import versioneer
 
@@ -18,6 +21,13 @@ def remove_use_2to3():
     setuptools.setup = patched_setup
 
 remove_use_2to3()
+
+class PostInstallCommand(install):
+    """Post-installation for installation mode."""
+    def run(self):
+        install.run(self)
+        # Register the kernel after install
+        subprocess.check_call([sys.executable, '-m', 'castro.post_install'])
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -48,7 +58,10 @@ setup(
     version='1.0',
     #version=versioneer.get_version(),
     #cmdclass=versioneer.get_cmdclass(),
-    install_requires=requirements,
+    install_requires=requirements + [
+        'jupyterlab',
+        'ipykernel'
+    ],,
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
