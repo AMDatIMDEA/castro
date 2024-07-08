@@ -1,5 +1,5 @@
 numpy
-scipy == 1.9.1
+scipy
 pandas
 random2
 scikit-learn
