@@ -3,7 +3,7 @@
 from os import path
 import os
 from setuptools import dist, find_packages, setup
-
+import versioneer
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -19,7 +19,6 @@ with open(path.join(here, 'requirements.txt')) as requirements_file:
                     if not line.startswith('#')]
 
 setup(
-    long_description=readme,
     name='castro',
     version='1.0',
     description='CASTRO is a code for a novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method',
@@ -32,6 +31,7 @@ setup(
     license='GPL V3',
     long_description=readme,
     keywords='castro',
+    long_description=readme+'\n\n',
     packages=find_packages(include=['castro', 'castro.*']),
     install_requires=requirements,
     extras_require={
