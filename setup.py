@@ -16,9 +16,6 @@ def remove_use_2to3():
 
     setup = patched_setup
 
-remove_use_2to3()
-
-
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
@@ -54,3 +51,5 @@ setup(
     },
     setup_requires=['setuptools<58.0.0'],
 )
+
+remove_use_2to3()
