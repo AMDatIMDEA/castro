@@ -10,6 +10,7 @@ python-math
 more-itertools
 python-csv
 seaborn
-notebook
+jupyterlab
 anyio==3.*
+ipywidgets
 
