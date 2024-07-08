@@ -15,5 +15,5 @@ anyio==3.*
 ipywidgets
 ipykernel
 imageio
-ipython>=8.13
+ipython>=8.13,<8.19
 
