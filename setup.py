@@ -8,13 +8,15 @@ from setuptools import dist, find_packages, setup
 
 # Workaround for the `use_2to3` issue
 def remove_use_2to3():
-    orig_setup = setup
+    orig_setup = setuptools.setup
 
     def patched_setup(**kwargs):
         kwargs.pop('use_2to3', None)
         return orig_setup(**kwargs)
 
-    setup = patched_setup
+    setuptools.setup = patched_setup
+
+remove_use_2to3()
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -52,5 +54,3 @@ setup(
     },
     setup_requires=['setuptools<58.0.0'],
 )
-
-remove_use_2to3()
