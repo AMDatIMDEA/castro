@@ -53,6 +53,6 @@ setup(
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
-    }
+    },
     setup_requires=['setuptools<58.0.0'],
 )
