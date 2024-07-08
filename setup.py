@@ -1,13 +1,8 @@
-# -*- coding: utf-8 -*-
-
-try:
-    from setuptools import setup, Extension
-except ImportError:
-    from distutils.core import setup
+#!/usr/bin/env python
 
 import os.path
 import os
-from setuptools import dist
+from setuptools import dist, find_packages, setup
 
 
 readme = ''
