@@ -11,3 +11,4 @@ more-itertools
 python-csv
 seaborn
 jupyterlab
+anyio==3.*
