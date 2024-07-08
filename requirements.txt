@@ -13,4 +13,5 @@ seaborn
 jupyterlab
 anyio==3.*
 ipywidgets
+ipykernel
 
