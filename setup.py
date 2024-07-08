@@ -3,7 +3,22 @@
 from os import path
 import os
 from setuptools import dist, find_packages, setup
-#import versioneer
+
+import versioneer
+
+# Workaround for the `use_2to3` issue
+def remove_use_2to3():
+    import setuptools
+    orig_setup = setuptools.setup
+
+    def patched_setup(**kwargs):
+        kwargs.pop('use_2to3', None)
+        return orig_setup(**kwargs)
+
+    setuptools.setup = patched_setup
+
+remove_use_2to3()
+
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -32,9 +47,12 @@ setup(
     keywords='castro',
     long_description=readme+'\n\n',
     packages=find_packages(include=['castro', 'castro.*']),
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     install_requires=requirements,
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
     }
+    setup_requires=['setuptools<58.0.0'],
 )
