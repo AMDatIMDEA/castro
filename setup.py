@@ -22,7 +22,7 @@ setup(
     long_description=readme,
     name='castro',
     version='1.0',
-    description='CASTRO - Constrained sequential Latin hypercube (with multidimensional uniformity) sampling',
+    description='CASTRO is a code for a novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method',
     python_requires='>=3.9',
     project_urls={
         "repository": "https://github.com/AMDatIMDEA/castro"},
@@ -30,7 +30,8 @@ setup(
     author_email='christina.schenk@imdea.org',
     maintainer='Christina Schenk',
     license='GPL V3',
-    keywords='Constrained sequential Latin hypercube (with multidimensional uniformity) sampling',
+    long_description=readme,
+    keywords='castro',
     packages=find_packages(include=['castro', 'castro.*']),
     install_requires=requirements,
     extras_require={
