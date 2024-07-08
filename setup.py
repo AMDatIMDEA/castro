@@ -29,7 +29,6 @@ setup(
     author_email='christina.schenk@imdea.org',
     maintainer='Christina Schenk',
     license='GPL V3',
-    long_description=readme,
     keywords='castro',
     long_description=readme+'\n\n',
     packages=find_packages(include=['castro', 'castro.*']),
