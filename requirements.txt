@@ -2,7 +2,7 @@ numpy
 scipy
 pandas
 random
-sklearn
+scikit-learn
 matplotlib
 lhsmdu
 python-time
