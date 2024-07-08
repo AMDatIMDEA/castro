@@ -86,7 +86,7 @@ def generate_lhs_sample(dimension, bounds, method="LHS", n_samp=10):
     return scale(sample, bounds)
 
 
-def handle_dim_1(bounds, method, n_samp):
+def handle_dim_1(bounds, method, n_samp, verbose=False):
     """
     handles sampling for dimension=1 
         
@@ -95,6 +95,7 @@ def handle_dim_1(bounds, method, n_samp):
     bounds: list of upper and lower bounds
     method: string of method: LHS or LHSMDU
     n_samp: number of samples to be generated
+    verbose: show prints and more info or not, default=False
     
     Returns
     -------
@@ -105,7 +106,7 @@ def handle_dim_1(bounds, method, n_samp):
     return sample1
 
 
-def handle_dim_2(bounds, method, n_samp):
+def handle_dim_2(bounds, method, n_samp, verbose=False):
     """
     handles sampling for dimension=2 
         
@@ -114,6 +115,7 @@ def handle_dim_2(bounds, method, n_samp):
     bounds: list of upper and lower bounds
     method: string of method: LHS or LHSMDU
     n_samp: number of samples to be generated
+    verbose: show prints and more info or not, default=False
     
     Returns
     -------
@@ -128,7 +130,7 @@ def handle_dim_2(bounds, method, n_samp):
     return sample1, sample2
 
 
-def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, max_iter_dim3, max_rej):
+def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, max_iter_dim3, max_rej, verbose=False):
     """
     handles sampling for dimension>2 
         
@@ -141,6 +143,7 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
     max_iter_dim2: maximum number of iterations for dimension 1,2 to be feasible
     max_iter_dim3: maximum number of iterations for dimension 1,2,3 to be feasible (for dimension=4)
     max_rej: integer number of maximum allowed samples to be rejected
+    verbose: show prints and more info or not, default=False
     
     Returns
     -------
@@ -180,11 +183,12 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
             infeasible = False
         elif len(A) != n_samp and len(B) != n_samp:
             if l1 > max_iter_dim2:
-                if len(A) >= n_samp - max_rej and len(B) >= n_samp - max_rej:  # 2*n_samp
+                if len(A) >= n_samp - max_rej and len(B) >= n_samp - max_rej:
                     sample1 = sample1[A]
                     sample2 = sample2[B]
                     sum_vec = np.add(sample1, sample2)
-                    print(n_samp - len(A), "samples were rejected")
+                    if verbose:
+                        print(n_samp - len(A), "samples were rejected")
                     infeasible = False
                     n_samp = len(A)
             else:
@@ -199,14 +203,16 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
                 counter_pair1=0
                 for m in notA:
                     if counter_pair1>n_samp//4:
-                        print("counter_pair exceeded")
+                        if verbose:
+                            print("counter_pair exceeded")
                         break
                     if m not in list(zip(*a_ind))[0]:
                         count1+=1
                         #print("maybe need new sample or to reject")
                     if max_rej>0:
                         if count1>max_rej-1:
-                            print("get new sample")
+                            if verbose:
+                                print("get new sample")
                             break
 
                     el0list = [i for i, (v,*_) in enumerate(a_ind) if v==m]
@@ -261,25 +267,29 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
                 keep_list = []
                 for i in range(len(sample4)):
                     if sample4[i]>bounds[3][1] or sample4[i]<bounds[3][0]:
-                        print("reject because exceeding bounds")
-                        print("index exceeding bounds", i)
+                        if verbose:
+                            print("reject because exceeding bounds")
+                            print("index exceeding bounds", i)
                         rej_list.append(i)
                     else:  
                         keep_list.append(i)
                 if len(rej_list)>n_samp-max_rej:
-                    print("Warning:", len(rej_list), "samples were rejected because they were not within the bounds.")
+                    if verbose:
+                        print("Warning:", len(rej_list), "samples were rejected because they were not within the bounds.")
                 sample1 = sample1[keep_list]
                 sample2 = sample2[keep_list]
                 sample3 = sample3[keep_list]
                 sample4 = sample4[keep_list]
-            print("sample1", sample1)
-            print("sample2", sample2)
-            print("sample3", sample3)
-            print("sample4", sample4)
-            print("Sum all", sample1+sample2+sample3+sample4)
+            if verbose:
+                print("sample1", sample1)
+                print("sample2", sample2)
+                print("sample3", sample3)
+                print("sample4", sample4)
+                print("Sum all", sample1+sample2+sample3+sample4)
 
             end = time.time()
-            print("The conditioned " + str(method) + " algorithm took ", end-start, "CPUs")
+            if verbose:
+                print("The conditioned " + str(method) + " algorithm took ", end-start, "CPUs")
             return sample1, sample2, sample3, sample4
     
         
@@ -292,34 +302,39 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
                 keep_list = []
                 for i in range(len(sample3)):
                     if sample3[i]>bounds[2][1] or sample3[i]<bounds[2][0]:
-                        print("reject because exceeding bounds")
-                        print("index exceeding bounds", i)
+                        if verbose:
+                            print("reject because exceeding bounds")
+                            print("index exceeding bounds", i)
                         rej_list.append(i)
                     else:  
                         keep_list.append(i)
                 if len(rej_list)>n_samp-max_rej:
-                    print("Warning:", len(rej_list), "samples were rejected because they were not within the bounds.") 
+                    if verbose:
+                        print("Warning:", len(rej_list), "samples were rejected because they were not within the bounds.") 
                 sample1 = sample1[keep_list]
                 sample2 = sample2[keep_list]
                 sample3 = sample3[keep_list]
-        del C_2
-        del Sumsamp2
-        del A
-        del B
-        del C
-        del D
-        del c_ind
-        print("sample1", sample1)
-        print("sample2", sample2)
-        print("sample3", sample3)
-        print("Sum all", sample1+sample2+sample3)
+        if verbose:
+            print("sample1", sample1)
+            print("sample2", sample2)
+            print("sample3", sample3)
+            print("Sum all", sample1+sample2+sample3)
 
         end = time.time()
-        print("The conditioned " + str(method) + " algorithm took ", end-start, "CPUs")
+        if verbose:
+            print("The conditioned " + str(method) + " algorithm took ", end-start, "CPUs")
         return sample1, sample2, sample3
-   
+    
+    del C_2
+    del Sumsamp2
+    del A
+    del B
+    del C
+    del D
+    del c_ind
 
-def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, max_rej, sum_vec, sample1, sample2):
+    
+def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, max_rej, sum_vec, sample1, sample2, verbose=False):
     """
     handles sampling for dimension>3
         
@@ -372,7 +387,8 @@ def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, m
 
         if len(C)!=n_samp and len(D)!=n_samp:
             if len(C)>=n_samp-max_rej and len(C)<n_samp:
-                print("rejected", n_samp-len(C), " samples")
+                if verbose:
+                    print("rejected", n_samp-len(C), " samples")
                 sample1 = sample1[C]
                 sample2 = sample2[C]
                 sample3 = sample3[D]
@@ -399,18 +415,16 @@ def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, m
             counter_pair=0
             for m in notC:
                 if counter_pair>n_samp:
-                    print("counter_pair exceeded")
+                    if verbose:
+                        print("counter_pair exceeded")
                     break
-                #if breaker2:
-                #    break
-                #print("c_ind", c_ind)
-                #if len(c_ind)>0:
                 if m not in list(zip(*c_ind))[0]:
                     count+=1
                         #print("maybe need new sample or to reject")
                 if max_rej>0:
                     if count>max_rej-1:
-                        print("get new sample")
+                        if verbose:
+                            print("get new sample")
                         break
                 #list of possible tuples with current missing index m:
                 el0list = [i for i, (v,*_) in enumerate(c_ind) if v==m]
@@ -449,7 +463,7 @@ def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, m
     return infeasible1, sample1, sample2, sample3
                             
                         
-def one_constrained_sampling(method="LHS", n_samp=10, bounds=None, max_iter=60, max_iter_dim2=60, max_iter_dim3=60, max_rej=None):
+def one_constrained_sampling(method="LHS", n_samp=10, bounds=None, max_iter=60, max_iter_dim2=60, max_iter_dim3=60, max_rej=None, verbose=False):
     """
     one_constrained_sampling for up to 4 dimensions, where samples should add up to 1
         
@@ -475,13 +489,13 @@ def one_constrained_sampling(method="LHS", n_samp=10, bounds=None, max_iter=60, 
     dim = len(bounds)
 
     if dim == 1:
-        return handle_dim_1(bounds, method, n_samp)
+        return handle_dim_1(bounds, method, n_samp, verbose)
 
     elif dim == 2:
-        return handle_dim_2(bounds, method, n_samp)
+        return handle_dim_2(bounds, method, n_samp, verbose)
 
     elif dim > 2:
-        return handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, max_iter_dim3, max_rej)
+        return handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, max_iter_dim3, max_rej, verbose)
 
     
 #-------------------------------------------------------------------------------------------------#
@@ -572,7 +586,7 @@ def one_constrained_sampling_wrapper(methodname, dim, n_samp, bounds, max_rej):
         print("This algorithm works for maximum 4 dimensions.")
         return None
 
-def sample_with_bound_permutations(prev_bounds=None, n_samp=10, tol_norm=1e-3, all_select=False, num_select=4, max_rej=None, dim=None):
+def sample_with_bound_permutations(prev_bounds=None, n_samp=10, tol_norm=1e-3, all_select=False, num_select=4, max_rej=None, dim=None, verbose=False):
     """
     computes samples with bound permutations
         
@@ -595,18 +609,20 @@ def sample_with_bound_permutations(prev_bounds=None, n_samp=10, tol_norm=1e-3, a
     all_perms = []
     all_perms += permutations(range(dim))
     while num_meth < 2:
-        print("NUM_METH", num_meth)
+        print("NUM_METH", num_meth, "running")
         
         for perm_ind, combi in enumerate(all_perms):
             bounds = get_bounds_for_dimension(combi, prev_bounds)
-            print("-----", perm_ind, "-----")
-            print(bounds)
-            print("--------------")
+            if verbose:
+                print("-----", perm_ind, "-----")
+                print(bounds)
+                print("--------------")
 
             methodname = "LHS" if num_meth == 0 else "LHSMDU"
             
             samples = one_constrained_sampling_wrapper(methodname, dim, n_samp, bounds, max_rej)
-            print(samples)
+            if verbose:
+                print(samples)
             if samples is None:
                 break
 
@@ -628,7 +644,8 @@ def sample_with_bound_permutations(prev_bounds=None, n_samp=10, tol_norm=1e-3, a
                     all_val_samples = select_samples(all_val_samples, val_samples_ord, tol_norm, num_select, all_select)
 
         end = time.time()
-        print("The conditioned " + str(methodname) + " algorithm for all bounds permutations took ", end - start, "CPUs")
+        if verbose:
+            print("The conditioned " + str(methodname) + " algorithm for all bounds permutations took ", end - start, "CPUs")
         num_meth += 1
 
         if num_meth < 2:
