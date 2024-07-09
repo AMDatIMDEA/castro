@@ -11,5 +11,7 @@ more-itertools
 python-csv
 seaborn
 anyio==3.*
+sphinx
+sphinx-rtd-theme
 
 
