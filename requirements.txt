@@ -10,10 +10,7 @@ python-math
 more-itertools
 python-csv
 seaborn
-jupyterlab
-anyio==3.*
-ipywidgets
 ipykernel
-imageio
-ipython>=8.13,<8.19
+notebook
+
 
