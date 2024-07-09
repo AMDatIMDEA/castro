@@ -48,9 +48,11 @@ class CustomInstallCommand(install):
         # Ensure jupyterlab is installed
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'jupyterlab'])
 
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir' 'setuptools==57.5.0'])
+
         # Install all packages from requirements.txt
         with open('requirements.txt') as f:
-            requirements = [line.strip() for line in f if not line.startswith('demjson') or line.startswith('python-csv')]
+            requirements = [line.strip() for line in f if not line.startswith('demjson')]
 
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir'] + requirements)
 
@@ -118,7 +120,7 @@ setup(
             'sphinx-panels',
         ],
     },
-    setup_requires=['setuptools<5.8.0'],
+    setup_requires=['setuptools<58.0.0'],
     cmdclass={
         'install': CustomInstallCommand,
     },
