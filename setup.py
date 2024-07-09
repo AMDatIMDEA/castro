@@ -48,6 +48,13 @@ class CustomInstallCommand(install):
         # Ensure jupyterlab is installed
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'jupyterlab'])
 
+        # Install all packages from requirements.txt
+        with open('requirements.txt') as f:
+            requirements = f.read().splitlines()
+
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir'] + requirements)
+
+
         # Register the Jupyter kernel
         try:
             subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env', '--display-name', 'Python (castro_env)'])
@@ -64,13 +71,6 @@ with open('README.md') as readme_file:
 
 #with open('HISTORY.rst') as history_file:
 #    history = history_file.read()
-
-
-here = path.abspath(path.dirname(__file__))
-with open(path.join(here, 'requirements.txt')) as requirements_file:
-    # Parse requirements.txt, ignoring any commented-out lines.
-    requirements = [line for line in requirements_file.read().splitlines()
-                    if not line.startswith('#')]
 
 setup(
     name='castro',
