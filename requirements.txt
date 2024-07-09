@@ -5,6 +5,7 @@ pandas
 random2
 scikit-learn
 lhsmdu
+opencv-python
 python-time
 python-math
 more-itertools
