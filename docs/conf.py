@@ -46,8 +46,8 @@ html_static_path = ['_static']
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.applehelp',
     'sphinx.ext.devhelp',
+    'sphinx.ext.applehelp',
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
