@@ -1,4 +1,3 @@
-sympy==1.13.0
 numpy<1.25.0,>=1.18.5
 scipy==1.13.1
 demjson==2.2.3
@@ -13,7 +12,7 @@ more-itertools==10.3.0
 python-csv==0.0.13
 seaborn==0.13.2
 anyio==3.*
-sphinx==7.3.7
+sphinx
 myst-parser
 myst-nb
 sphinx-panels
@@ -26,4 +25,5 @@ docutils<0.21
 sphinx-rtd-theme
 sphinxcontrib-napoleon
 sphinxcontrib-jquery==4.0
+sympy==1.13.0
 autodocs
