@@ -54,7 +54,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
-    'sphinxcontrib.jquery',
+    'sphinx.ext.jquery',
     'sphinx.ext.mathjax'
 ]
 
