@@ -108,14 +108,14 @@ setup(
             'sphinxcontrib.qthelp==1.0.6',
             'docutils<0.21',
             'sphinx-rtd-theme',
-            'sphinxcontrib.viewcode',
+            #'sphinxcontrib.viewcode',
             'sphinx.ext.napoleon',
-            'sphinxcontrib.mathjax',
+            #'sphinxcontrib.mathjax',
             'sphinxcontrib.jquery==4.0',
             'autodocs'
         ],
     },
-    #setup_requires=['setuptools<58.0.0'],
+    setup_requires=['setuptools<58.0.0'],
     cmdclass={
         'install': CustomInstallCommand,
     },
