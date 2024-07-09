@@ -7,6 +7,7 @@ from setuptools import dist, find_packages, setup
 from setuptools.command.install import install
 import subprocess
 import sys
+import pkg_resources
 
 #import versioneer
 
@@ -20,7 +21,14 @@ def remove_use_2to3():
 
     setuptools.setup = patched_setup
 
-remove_use_2to3()
+remove_use_2to3
+
+def get_ipython_dependency():
+    python_version = pkg_resources.parse_version(sys.version.split(" ")[0])
+    if python_version < pkg_resources.parse_version("3.10"):
+        return "ipython>=8.13,<8.19"
+    else:
+        return "ipython>=8.19"
 
 # Function to determine the appropriate IPython version
 def get_ipython_dependency():
@@ -91,10 +99,10 @@ setup(
         'ipykernel',
         'jupyter_contrib_nbextensions'
     ] + ([
-    'ipython>=8.19'  # Common dependency for all Python versions >= 3.10
-] if sys.version_info >= (3, 10) else [
-    'ipython>=8.13, <8.19'  # Dependency specific to Python 3.9
-]),
+        'ipython>=8.19'  # Common dependency for all Python versions >= 3.10
+    ] if sys.version_info >= (3, 10) else [
+        'ipython>=8.13, <8.19'  # Dependency specific to Python 3.9
+    ]),
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
