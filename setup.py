@@ -104,7 +104,6 @@ setup(
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
             'sphinx==7.3.7',
-            'sphinx-rtd-theme==2.0.0',
             'myst-parser',
             'myst-nb',
             'sphinx-panels',
@@ -114,6 +113,7 @@ setup(
             'sphinxcontrib.serializinghtml==1.1.9',
             'sphinxcontrib.qthelp==1.0.6',
             'docutils<0.21',
+            'sphinx-rtd-theme',
             'sphinxcontrib.viewcode',
             'sphinx.ext.napoleon',
             'sphinxcontrib.mathjax',
