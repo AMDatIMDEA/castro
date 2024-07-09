@@ -23,12 +23,6 @@ def remove_use_2to3():
 
 remove_use_2to3
 
-def get_ipython_dependency():
-    python_version = pkg_resources.parse_version(sys.version.split(" ")[0])
-    if python_version < pkg_resources.parse_version("3.10"):
-        return "ipython>=8.13,<8.19"
-    else:
-        return "ipython>=8.19"
 
 # Function to determine the appropriate IPython version
 def get_ipython_dependency():
@@ -91,7 +85,7 @@ setup(
     version='1.0.0',
     #version=versioneer.get_version(),
     #cmdclass=versioneer.get_cmdclass(),
-    install_requires=requirements + [
+    install_requires = requirements + [
         'jupyterlab',
         'ipykernel',
         'jupyter_contrib_nbextensions'
