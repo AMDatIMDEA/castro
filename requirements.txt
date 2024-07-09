@@ -1,6 +1,7 @@
 numpy<1.25.0,>=1.18.5
 scipy==1.13.1
 sympy==1.13.0
+demjson==2.2.3
 pandas==2.2.2
 random2==1.0.2
 scikit-learn==1.5.1
