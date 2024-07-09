@@ -32,28 +32,24 @@ def get_ipython_dependency():
 
 # Function to determine the appropriate IPython version
 def get_ipython_dependency():
-    python_version = pkg_resources.parse_version(sys.version.split(" ")[0])
-    if python_version < pkg_resources.parse_version("3.10"):
+    if sys.version_info >= (3, 10):
+        return "ipython>=8.19"
+    elif sys.version_info >= (3, 9):
         return "ipython>=8.13,<8.19"
     else:
-        return "ipython>=8.19"
+        raise RuntimeError("Python version not supported by IPython")
+
 
 # Post-installation for installation mode
 class CustomInstallCommand(install):
     """Customized setuptools install command - uses pip with --no-cache-dir to install requirements."""
     def run(self):
-        # Ensure we install the requirements with --no-cache-dir
-        here = path.abspath(path.dirname(__file__))
-        requirements_path = path.join(here, 'requirements.txt')
-        if os.path.exists(requirements_path):
-            subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', '-r', requirements_path])
+        # Ensure we install IPython with the correct version requirement
+        ipython_dependency = get_ipython_dependency()
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', ipython_dependency])
 
         # Ensure ipykernel is installed
-        try:
-            subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'ipykernel'])
-        except subprocess.CalledProcessError as e:
-            print(f"Failed to install ipykernel: {e}")
-            sys.exit(1)
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'ipykernel'])
 
         # Register the Jupyter kernel
         try:
@@ -61,6 +57,7 @@ class CustomInstallCommand(install):
         except subprocess.CalledProcessError as e:
             print(f"Failed to register Jupyter kernel: {e}")
             sys.exit(1)
+
 
         # Run the standard install command
         install.run(self)
