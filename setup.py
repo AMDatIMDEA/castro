@@ -58,18 +58,10 @@ setup(
     version='1.0',
     #version=versioneer.get_version(),
     #cmdclass=versioneer.get_cmdclass(),
-    install_requires=requirements + [
-        'jupyterlab',
-        'ipykernel'
-    ],
+    install_requires=requirements,
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
     },
     setup_requires=['setuptools<58.0.0'],
-    entry_points={
-        'console_scripts': [
-            'castro-jupyter = castro.jupyter:main',
-        ],
-    },
 )
