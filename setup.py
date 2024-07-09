@@ -90,13 +90,11 @@ setup(
         'jupyterlab',
         'ipykernel',
         'jupyter_contrib_nbextensions'
-    ] +
-        'python_version == "3.9"': [
-            'ipython>8.13, <8.19',
-        ],
-        'python_version >= "3.10"': [
-            'ipython>8.19',
-        ],
+    ] + ([
+    'ipython>=8.19'  # Common dependency for all Python versions >= 3.10
+] if sys.version_info >= (3, 10) else [
+    'ipython>=8.13, <8.19'  # Dependency specific to Python 3.9
+]),
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
