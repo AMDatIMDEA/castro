@@ -10,8 +10,5 @@ python-math
 more-itertools
 python-csv
 seaborn
-ipykernel
-jupyterlab
-jupyter_contrib_nbextensions
 
 

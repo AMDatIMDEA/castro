@@ -58,7 +58,11 @@ setup(
     version='1.0',
     #version=versioneer.get_version(),
     #cmdclass=versioneer.get_cmdclass(),
-    install_requires=requirements,
+    install_requires=requirements + [
+        'jupyterlab',
+        'ipykernel',
+        'jupyter_contrib_nbextensions'
+    ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
