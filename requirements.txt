@@ -10,5 +10,6 @@ python-math
 more-itertools
 python-csv
 seaborn
+anyio==3.*
 
 
