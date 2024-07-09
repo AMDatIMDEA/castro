@@ -7,7 +7,6 @@ from setuptools import dist, find_packages, setup
 from setuptools.command.install import install
 import subprocess
 import sys
-import pkg_resources
 
 #import versioneer
 
@@ -53,7 +52,6 @@ class CustomInstallCommand(install):
             subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env2', '--display-name', 'Python (castro_env2)'])
         except subprocess.CalledProcessError as e:
             print(f"Failed to register Jupyter kernel: {e}")
-            print(f"Output: {e.output}")
             sys.exit(1)
 
         # Run the standard install command
@@ -91,9 +89,14 @@ setup(
     install_requires=requirements + [
         'jupyterlab',
         'ipykernel',
-        'jupyter_contrib_nbextensions',
-        get_ipython_dependency()
-    ],
+        'jupyter_contrib_nbextensions'
+    ] +
+        'python_version == "3.9"': [
+            'ipython>8.13, <8.19',
+        ],
+        'python_version >= "3.10"': [
+            'ipython>8.19',
+        ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
