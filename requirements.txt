@@ -23,7 +23,7 @@ sphinxcontrib-serializinghtml==1.1.9
 sphinxcontrib-qthelp==1.0.6
 docutils<0.21
 sphinx-rtd-theme
-sphinx-ext-napoleon
-sphinxcontrib.mathjax
+sphinxcontrib-napoleon
+sphinxcontrib-mathjax
 sphinxcontrib-jquery==4.0
 autodocs
