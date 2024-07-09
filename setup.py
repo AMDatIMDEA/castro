@@ -106,7 +106,8 @@ setup(
             'sphinxcontrib.devhelp==1.0.5',
             'sphinxcontrib.applehelp==1.0.2',
             'sphinxcontrib.htmlhelp==2.0.4',
-            'sphinxcontrib.serializinghtml'
+            'sphinxcontrib.serializinghtml==1.1.9',
+            'sphinxcontrib.qthelp==1.0.6',
             'sphinx',
             'docutils<0.21',
             'sphinx-rtd-theme==2.0.0',
