@@ -108,7 +108,7 @@ setup(
             'sphinx',
             'sphinx-rtd-theme',
             'sphinxcontrib.viewcode',
-            'sphinxcontrib.napoleon',
+            'sphinx.ext.napoleon',
             'sphinxcontrib.mathjax',
             'sphinx_math_dollar',
             'autodocs'
