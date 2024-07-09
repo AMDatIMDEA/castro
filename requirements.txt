@@ -10,6 +10,6 @@ python-time
 python-math
 more-itertools
 python-csv
-seaborn
+seaborn==0.13.2
 anyio==3.*
 
