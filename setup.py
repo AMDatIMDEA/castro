@@ -114,7 +114,7 @@ setup(
             'autodocs'
         ],
     },
-    setup_requires=['setuptools<58.0.0'],
+    #setup_requires=['setuptools<58.0.0'],
     cmdclass={
         'install': CustomInstallCommand,
     },
