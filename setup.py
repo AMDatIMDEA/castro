@@ -104,7 +104,7 @@ setup(
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
             'sphinxcontrib.applehelp',
-            'sphinx',
+            'sphinx==5.0.2',
             'sphinx-rtd-theme',
             'myst-parser',
             'myst-nb',
