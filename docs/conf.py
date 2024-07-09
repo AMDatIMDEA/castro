@@ -46,12 +46,12 @@ html_static_path = ['_static']
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinxcontrib.applehelp',
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
     'sphinx_math_dollar',
-    'sphinx.ext.mathjax',
-    'sphinxcontrib.applehelp',
+    'sphinx.ext.mathjax'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
