@@ -12,6 +12,7 @@ python-csv==0.0.13
 seaborn==0.13.2
 anyio==3.*
 sphinx==7.3.7
+sphinx-rtd-theme
 myst-parser
 myst-nb
 sphinx-panels
@@ -21,7 +22,6 @@ sphinxcontrib-htmlhelp==2.0.4
 sphinxcontrib-serializinghtml==1.1.9
 sphinxcontrib-qthelp==1.0.6
 docutils<0.21
-sphinx-rtd-theme
 sphinxcontrib-napoleon
 sphinxcontrib-jquery==4.0
 sympy==1.13.0
