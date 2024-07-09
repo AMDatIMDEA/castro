@@ -105,7 +105,7 @@ setup(
         'docs': [
             'sphinxcontrib.devhelp==1.0.5',
             'sphinxcontrib.applehelp==1.0.2',
-            'sphinxcontrib.htmlhelp',
+            'sphinxcontrib.htmlhelp==2.0.4',
             'sphinx',
             'docutils<0.21',
             'sphinx-rtd-theme==2.0.0',
