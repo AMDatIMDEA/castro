@@ -50,7 +50,7 @@ class CustomInstallCommand(install):
 
         # Install all packages from requirements.txt
         with open('requirements.txt') as f:
-            requirements = f.read().splitlines()
+            requirements = [line.strip() for line in f if not line.startswith('demjson')]
 
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir'] + requirements)
 
