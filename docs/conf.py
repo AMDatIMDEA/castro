@@ -50,7 +50,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
     'sphinx_math_dollar',
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
+    'sphinxcontrib.applehelp',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
