@@ -12,7 +12,7 @@ more-itertools==10.3.0
 python-csv==0.0.13
 seaborn==0.13.2
 anyio==3.*
-sphinx
+sphinx==7.3.7
 myst-parser
 myst-nb
 sphinx-panels
