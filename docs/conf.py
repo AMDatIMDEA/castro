@@ -22,7 +22,7 @@ sys.path.append(os.path.abspath(
 project = 'CASTRO'
 copyright = '2024, Christina Schenk'
 author = 'Christina Schenk'
-release = '1.0'
+release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

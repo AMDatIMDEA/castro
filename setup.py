@@ -48,19 +48,25 @@ setup(
     keywords='castro',
     long_description=readme+'\n\n',
     packages=find_packages(include=['castro', 'castro.*']),
-    version='1.0',
+    version='1.0.0',
     #version=versioneer.get_version(),
     #cmdclass=versioneer.get_cmdclass(),
     install_requires=requirements + [
         'jupyterlab',
         'ipykernel',
-        'jupyter_contrib_nbextensions',
-        'sphinx',
-        'sphinx-rtd-theme'
+        'jupyter_contrib_nbextensions'
     ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
-        #'docs': ['sphinx', 'sphinx-doc', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs'],
+        'docs': [
+            'sphinx',
+            'sphinx-rtd-theme',
+            'myst-parser',
+            'myst-nb',
+            'sphinx-panels',
+            'sphinxcontrib.applehelp',  # Add the missing extension here
+            'autodocs'
+        ],
         'python_version == "3.9"': [
             'ipython>8.13, <8.19',
         ],
