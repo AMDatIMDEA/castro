@@ -11,7 +11,7 @@ more-itertools
 python-csv
 seaborn
 ipykernel
-jupyter
+jupyterlab
 jupyter_contrib_nbextensions
 
 
