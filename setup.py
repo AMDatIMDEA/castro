@@ -22,6 +22,14 @@ def remove_use_2to3():
 
 remove_use_2to3()
 
+# Function to determine the appropriate IPython version
+def get_ipython_dependency():
+    python_version = pkg_resources.parse_version(sys.version.split(" ")[0])
+    if python_version < pkg_resources.parse_version("3.10"):
+        return "ipython>=8.13,<8.19"
+    else:
+        return "ipython>=8.19"
+
 # Post-installation for installation mode
 class CustomInstallCommand(install):
     """Customized setuptools install command - uses pip with --no-cache-dir to install requirements."""
@@ -82,6 +90,7 @@ setup(
         'jupyterlab',
         'ipykernel',
         'jupyter_contrib_nbextensions'
+        get_ipython_dependency()
     ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
@@ -97,12 +106,6 @@ setup(
             'sphinxcontrib.qthelp',
             'sphinxcontrib.serializinghtml',
             'autodocs'
-        ],
-        'python_version == "3.9"': [
-            'ipython>8.13, <8.19',
-        ],
-        'python_version >= "3.10"': [
-            'ipython>8.19',
         ],
     },
     setup_requires=['setuptools<58.0.0'],
