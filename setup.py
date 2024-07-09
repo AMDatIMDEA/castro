@@ -61,11 +61,20 @@ setup(
     install_requires=requirements + [
         'jupyterlab',
         'ipykernel',
-        'jupyter_contrib_nbextensions'
+        'jupyter_contrib_nbextensions',
     ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
-        'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs']
+        'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs'],
+        'python_version == "3.9"': [
+            'ipython>8.13, <8.19',
+        ],
+        'python_version >= "3.10"': [
+            'ipython>8.19',
+        ],
     },
     setup_requires=['setuptools<58.0.0'],
+    cmdclass={
+        'install': PostInstallCommand,
+    },
 )

@@ -1,5 +1,7 @@
-numpy<1.25.0,>=1.18.5
-scipy==1.14.0
+numpy<2.3,>=1.22.4
+scipy==2.0.0
+sympy
+pathlib
 pandas
 random2
 scikit-learn
