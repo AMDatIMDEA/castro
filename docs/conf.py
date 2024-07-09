@@ -48,6 +48,8 @@ html_static_path = ['_static']
 extensions = [
     'sphinxcontrib.devhelp',
     'sphinx.ext.devhelp',
+    'sphinxcontrib.htmlhelp',
+    'sphinx.ext.htmlhelp',
     'sphinx.ext.applehelp',
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
