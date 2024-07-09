@@ -20,7 +20,7 @@ def remove_use_2to3():
 
     setuptools.setup = patched_setup
 
-#remove_use_2to3()
+remove_use_2to3()
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -68,5 +68,5 @@ setup(
             'ipython>8.19',
         ],
     },
-    #setup_requires=['setuptools<58.0.0'],
+    setup_requires=['setuptools<58.0.0'],
 )
