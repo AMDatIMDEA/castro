@@ -103,7 +103,7 @@ setup(
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
-            'sphinxcontrib-applehelp',
+            'sphinxcontrib.applehelp',
             'sphinx',
             'sphinx-rtd-theme',
             'myst-parser',
