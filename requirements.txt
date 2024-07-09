@@ -27,3 +27,7 @@ sphinxcontrib-napoleon
 sphinxcontrib-jquery==4.0
 sympy==1.13.0
 autodocs
+jupyterlab
+ipykernel
+jupyter_contrib_nbextensions
+ipython
