@@ -43,7 +43,10 @@ class CustomInstallCommand(install):
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', ipython_dependency])
 
         # Ensure ipykernel is installed
-        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'ipykernel'])
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'ipykernel
+
+        # Ensure jupyterlab is installed
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'jupyterlab'])
 
         # Register the Jupyter kernel
         try:
