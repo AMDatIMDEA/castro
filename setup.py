@@ -88,7 +88,7 @@ setup(
     version='1.0.0',
     #version=versioneer.get_version(),
     #cmdclass=versioneer.get_cmdclass(),
-    install_requires = requirements + [
+    install_requires = [
         'jupyterlab',
         'ipykernel',
         'jupyter_contrib_nbextensions'
