@@ -113,7 +113,7 @@ setup(
             'sphinxcontrib.viewcode',
             'sphinx.ext.napoleon',
             'sphinxcontrib.mathjax',
-            'sphinxcontrib.jquery==4.0',
+            'sphinxcontrib.jquery==4.1',
             'sphinx==7.3.7',
             'autodocs'
         ],
