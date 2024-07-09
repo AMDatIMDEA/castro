@@ -50,6 +50,7 @@ extensions = [
     'sphinx.ext.devhelp',
     'sphinx.ext.htmlhelp',
     'sphinx.ext.serializinghtml',
+    'sphinx.ext.qthelp'
     'sphinx.ext.applehelp',
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
