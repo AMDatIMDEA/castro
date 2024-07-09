@@ -100,7 +100,7 @@ setup(
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
-            'sphinx==7.3.7',
+            'sphinx',
             'myst-parser',
             'myst-nb',
             'sphinx-panels',
