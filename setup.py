@@ -22,6 +22,23 @@ def remove_use_2to3():
 
 remove_use_2to3()
 
+# Post-installation for installation mode
+class CustomInstallCommand(install):
+    """Customized setuptools install command - uses pip with --no-cache-dir to install requirements."""
+    def run(self):
+        # Ensure we install the requirements with --no-cache-dir
+        here = path.abspath(path.dirname(__file__))
+        requirements_path = path.join(here, 'requirements.txt')
+        if os.path.exists(requirements_path):
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', '-r', requirements_path])
+
+        # Register the Jupyter kernel
+        subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env', '--display-name', 'Python (castro_env)'])
+
+        # Run the standard install command
+        install.run(self)
+
+
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
@@ -64,7 +81,11 @@ setup(
             'myst-parser',
             'myst-nb',
             'sphinx-panels',
-            'sphinxcontrib.applehelp',  # Add the missing extension here
+            'sphinxcontrib.applehelp',
+            'sphinxcontrib.devhelp',
+            'sphinxcontrib.htmlhelp',
+            'sphinxcontrib.qthelp',
+            'sphinxcontrib.serializinghtml',
             'autodocs'
         ],
         'python_version == "3.9"': [
@@ -74,5 +95,9 @@ setup(
             'ipython>8.19',
         ],
     },
-    setup_requires=['setuptools<58.0.0'],
+    setup_requires=['setuptools<58.0.0
+    cmdclass={
+        'install': CustomInstallCommand,
+    },
+
 )
