@@ -21,7 +21,7 @@ def remove_use_2to3():
 
     setuptools.setup = patched_setup
 
-remove_use_2to3
+#remove_use_2to3
 
 
 # Function to determine the appropriate IPython version
@@ -115,7 +115,7 @@ setup(
             'autodocs'
         ],
     },
-    setup_requires=['setuptools<58.0.0'],
+    #setup_requires=['setuptools<58.0.0'],
     cmdclass={
         'install': CustomInstallCommand,
     },
