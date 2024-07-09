@@ -1,10 +1,10 @@
 sympy==1.13.0
 numpy<1.25.0,>=1.18.5
 scipy==1.13.1
-pandas
-random2
-scikit-learn
-matplotlib
+pandas==2.2.2
+random2==1.0.2
+scikit-learn==1.5.1
+matplotlib==3.9.1
 lhsmdu
 python-time
 python-math
@@ -12,5 +12,4 @@ more-itertools
 python-csv
 seaborn
 anyio==3.*
-sphinx==7.3.7
 
