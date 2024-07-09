@@ -89,7 +89,7 @@ setup(
     install_requires=requirements + [
         'jupyterlab',
         'ipykernel',
-        'jupyter_contrib_nbextensions'
+        'jupyter_contrib_nbextensions',
         get_ipython_dependency()
     ],
     extras_require={
