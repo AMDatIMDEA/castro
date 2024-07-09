@@ -103,12 +103,13 @@ setup(
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
-            'sphinxcontrib.applehelp',
+            'sphinxcontrib.applehelp==1.0.2',
             'sphinx',
             'sphinx-rtd-theme',
             'myst-parser',
             'myst-nb',
             'sphinx-panels',
+            'sphinxcontrib-serializinghtml',
             'sphinxcontrib.devhelp',
             'sphinxcontrib.htmlhelp',
             'sphinxcontrib.qthelp',
