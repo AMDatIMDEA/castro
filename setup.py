@@ -114,7 +114,8 @@ setup(
             'sphinxcontrib.viewcode',
             'sphinx.ext.napoleon',
             'sphinxcontrib.mathjax',
-            'sphinx_math_dollar',
+            'sphinxcontrib.jquery',
+            'sphinx_math_dollar==1.2.0',
             'autodocs'
         ],
     },
