@@ -47,7 +47,7 @@ html_static_path = ['_static']
 # ones.
 extensions = [
     'sphinxcontrib.devhelp',
-    'sphinx.ext.htmlhelp',
+    'sphinxcontrib.htmlhelp',
     'sphinx.ext.serializinghtml',
     'sphinx.ext.qthelp'
     'sphinx.ext.applehelp',
