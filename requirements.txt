@@ -1,6 +1,6 @@
 numpy<1.25.0,>=1.18.5
 scipy
-sympy
+sympy==1.13.0
 pandas
 random2
 scikit-learn
