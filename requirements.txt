@@ -12,5 +12,6 @@ python-csv
 seaborn
 ipykernel
 jupyter
+jupyter_contrib_nbextensions
 
 
