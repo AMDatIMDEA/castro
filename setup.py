@@ -58,7 +58,7 @@ setup(
     ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
-        'docs': ['sphinx', 'sphinx-build', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs'],
+        'docs': ['sphinx', 'sphinx-rtd-theme', 'myst-parser', 'myst-nb', 'sphinx-panels', 'autodocs'],
         'python_version == "3.9"': [
             'ipython>8.13, <8.19',
         ],
