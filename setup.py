@@ -55,8 +55,6 @@ setup(
         'jupyterlab',
         'ipykernel',
         'jupyter_contrib_nbextensions',
-        'sphinx',
-        'sphinx-rtd-theme'
     ],
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
