@@ -5,11 +5,11 @@ pandas==2.2.2
 random2==1.0.2
 scikit-learn==1.5.1
 matplotlib==3.9.1
-lhsmdu
-python-time
-python-math
-more-itertools
-python-csv
+lhsmdu==1.1
+python-time==0.3.0
+python-math==0.0.1
+more-itertools==10.3.0
+python-csv==0.0.13
 seaborn==0.13.2
-anyio==3.*
+anyio==3.7.1
 
