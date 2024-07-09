@@ -55,7 +55,6 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
     'sphinxcontrib.jquery',
-    'sphinx_math_dollar',
     'sphinx.ext.mathjax'
 ]
 
