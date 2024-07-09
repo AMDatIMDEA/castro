@@ -22,13 +22,6 @@ def remove_use_2to3():
 
 remove_use_2to3()
 
-class PostInstallCommand(install):
-    """Post-installation for installation mode."""
-    def run(self):
-        install.run(self)
-        # Register the kernel after install
-        subprocess.check_call([sys.executable, '-m', 'castro.post_install'])
-
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
@@ -74,7 +67,4 @@ setup(
         ],
     },
     setup_requires=['setuptools<58.0.0'],
-    cmdclass={
-        'install': PostInstallCommand,
-    },
 )
