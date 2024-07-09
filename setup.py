@@ -53,7 +53,7 @@ class CustomInstallCommand(install):
 
         # Register the Jupyter kernel
         try:
-            subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env2', '--display-name', 'Python (castro_env2)'])
+            subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env', '--display-name', 'Python (castro_env)'])
         except subprocess.CalledProcessError as e:
             print(f"Failed to register Jupyter kernel: {e}")
             sys.exit(1)
@@ -114,7 +114,6 @@ setup(
             'sphinx.ext.napoleon',
             'sphinxcontrib.mathjax',
             'sphinxcontrib.jquery==4.0',
-            'sphinx_math_dollar==1.2.1',
             'sphinx',
             'autodocs'
         ],
