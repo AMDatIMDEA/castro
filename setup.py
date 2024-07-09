@@ -48,7 +48,7 @@ class CustomInstallCommand(install):
         # Ensure jupyterlab is installed
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'jupyterlab'])
 
-        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir' 'setuptools==57.5.0'])
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'setuptools==57.5.0'])
 
         # Install all packages from requirements.txt
         with open('requirements.txt') as f:
