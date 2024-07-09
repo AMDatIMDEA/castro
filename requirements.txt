@@ -11,6 +11,6 @@ more-itertools
 python-csv
 seaborn
 ipykernel
-notebook
+jupyter
 
 
