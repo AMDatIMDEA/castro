@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 
+from os import path
 import os
+import setuptools
+from setuptools import dist, find_packages, setup
+from setuptools.command.install import install
 import subprocess
 import sys
-from os import path
-from setuptools import setup, find_packages
-from setuptools.command.install import install
 import pkg_resources
+
+#import versioneer
 
 # Workaround for the `use_2to3` issue
 def remove_use_2to3():
@@ -47,7 +50,7 @@ class CustomInstallCommand(install):
 
         # Register the Jupyter kernel
         try:
-            subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--name', 'castro_env2', '--display-name', 'Python (castro_env2)'])
+            subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env2', '--display-name', 'Python (castro_env2)'])
         except subprocess.CalledProcessError as e:
             print(f"Failed to register Jupyter kernel: {e}")
             print(f"Output: {e.output}")
@@ -59,25 +62,32 @@ class CustomInstallCommand(install):
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
+#with open('HISTORY.rst') as history_file:
+#    history = history_file.read()
+
+
 here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'requirements.txt')) as requirements_file:
-    requirements = [line for line in requirements_file.read().splitlines() if not line.startswith('#')]
+    # Parse requirements.txt, ignoring any commented-out lines.
+    requirements = [line for line in requirements_file.read().splitlines()
+                    if not line.startswith('#')]
 
 setup(
     name='castro',
-    version='1.0.0',
     description='CASTRO is a code for a novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method',
     python_requires='>=3.9',
     project_urls={
-        "repository": "https://github.com/AMDatIMDEA/castro"
-    },
+        "repository": "https://github.com/AMDatIMDEA/castro"},
     author='Christina Schenk',
     author_email='christina.schenk@imdea.org',
     maintainer='Christina Schenk',
     license='GPL V3',
     keywords='castro',
-    long_description=readme,
+    long_description=readme+'\n\n',
     packages=find_packages(include=['castro', 'castro.*']),
+    version='1.0.0',
+    #version=versioneer.get_version(),
+    #cmdclass=versioneer.get_cmdclass(),
     install_requires=requirements + [
         'jupyterlab',
         'ipykernel',
@@ -104,4 +114,5 @@ setup(
     cmdclass={
         'install': CustomInstallCommand,
     },
+
 )
