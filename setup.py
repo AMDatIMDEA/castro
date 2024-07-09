@@ -33,7 +33,7 @@ class CustomInstallCommand(install):
             subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', '-r', requirements_path])
 
         # Register the Jupyter kernel
-        subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env', '--display-name', 'Python (castro_env)'])
+        subprocess.check_call([sys.executable, '-m', 'ipykernel', 'install', '--user', '--name', 'castro_env2', '--display-name', 'Python (castro_env2)'])
 
         # Run the standard install command
         install.run(self)
