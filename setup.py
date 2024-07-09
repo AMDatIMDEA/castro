@@ -103,7 +103,7 @@ setup(
     extras_require={
         'tests': ['pytest', 'codecov', 'pytest-cov'],
         'docs': [
-            'sphinxcontrib.devhelp==1.0.6',
+            'sphinxcontrib.devhelp==1.0.5',
             'sphinxcontrib.applehelp==1.0.2',
             'sphinx',
             'docutils<0.21',
