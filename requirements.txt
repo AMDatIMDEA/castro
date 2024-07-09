@@ -30,4 +30,3 @@ jupyterlab
 ipykernel
 jupyter_contrib_nbextensions
 ipython
-demjson==2.2.4
