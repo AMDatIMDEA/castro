@@ -13,9 +13,12 @@ CASTRO is a Python package designed to ...
 - **Bug reports:** - https://github.com/AMDatIMDEA/castro/issues
 
 It has the following functionality:
-
- -
-
+ - sampling with space coverage for mixture and other synthesis constraints
+ - uses divide and conquer approach for problem of dimension greater than 4, divide problem into subproblems and later reassemble
+ - find n_des experiments to conduct for exploration of the design space under a limited budget and taking the previously collected experimental data into account
+ - pre- and post-process data
+ - calculation of uniformity metrics
+ - visualization of results
 
 <br>
 
@@ -27,7 +30,6 @@ You can install CASTRO by simply cloning or downloading the repository, installi
     git clone https://github.com/AMDatIMDEA/castro.git
     cd castro
     python setup.py install
-    jupyter lab build
 
 ### Examples and Tutorials
 
@@ -47,4 +49,4 @@ GPL-3
 ## Please cite
 <br>
 
- - C. Schenk, M. Haranczyk (2024): CASTRO - A novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method
+ - C. Schenk, M. Haranczyk (2024): CASTRO - A novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method, ArXiV, (under review)
