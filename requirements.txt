@@ -1,6 +1,6 @@
-sympy==1.13.0
 numpy<1.25.0,>=1.18.5
 scipy==1.13.1
+sympy==1.13.0
 pandas==2.2.2
 random2==1.0.2
 scikit-learn==1.5.1
@@ -11,5 +11,5 @@ python-math==0.0.1
 more-itertools==10.3.0
 python-csv==0.0.13
 seaborn==0.13.2
-anyio==3.7.1
+anyio==3.*
 
