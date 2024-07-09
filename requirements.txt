@@ -24,6 +24,5 @@ sphinxcontrib-qthelp==1.0.6
 docutils<0.21
 sphinx-rtd-theme
 sphinxcontrib-napoleon
-sphinxcontrib-mathjax
 sphinxcontrib-jquery==4.0
 autodocs
