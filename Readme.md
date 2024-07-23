@@ -56,4 +56,4 @@ GPL-3
 ## Please cite
 <br>
 
- - C. Schenk, M. Haranczyk (2024): CASTRO - A novel constrained sequential Latin hypercube (with multidimensional uniformity) sampling method, ArXiV, (under review)
+ - C. Schenk, M. Haranczyk (2024): CASTRO - Efficient constrained sampling method for material and chemical experimental design, ArXiV, (under review)
