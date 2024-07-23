@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>src package &mdash; CASTRO 1.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>src package &mdash; CASTRO 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,7 +75,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#src-utils-module">src.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.utils.apply_mixed_synthesis_constraint"><code class="docutils literal notranslate"><span class="pre">apply_mixed_synthesis_constraint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.utils.apply_single_synthesis_constraint"><code class="docutils literal notranslate"><span class="pre">apply_single_synthesis_constraint()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#src.utils.save_to_csv"><code class="docutils literal notranslate"><span class="pre">save_to_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.utils.select_des_n_samp_random_pts"><code class="docutils literal notranslate"><span class="pre">select_des_n_samp_random_pts()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-src">Module contents</a></li>
@@ -110,21 +115,21 @@
            <div itemprop="articleBody">
              
   <section id="src-package">
-<h1>src package<a class="headerlink" href="#src-package" title="Permalink to this heading"></a></h1>
+<h1>src package<a class="headerlink" href="#src-package" title="Link to this heading">¶</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
 <section id="module-src.conditionedSampling">
-<span id="src-conditionedsampling-module"></span><h2>src.conditionedSampling module<a class="headerlink" href="#module-src.conditionedSampling" title="Permalink to this heading"></a></h2>
+<span id="src-conditionedsampling-module"></span><h2>src.conditionedSampling module<a class="headerlink" href="#module-src.conditionedSampling" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.clip_and_scale">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">clip_and_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#clip_and_scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.clip_and_scale" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">clip_and_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.clip_and_scale" title="Link to this definition">¶</a></dt>
 <dd><p>clips and scales the sample to be within the bounds</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample</strong> (<em>vector</em><em> of </em><em>sample</em>) – </p></li>
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
+<li><p><strong>sample</strong> (<em>vector</em><em> of </em><em>sample</em>)</p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -135,15 +140,15 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.generate_lhs_sample">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">generate_lhs_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LHS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#generate_lhs_sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.generate_lhs_sample" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">generate_lhs_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LHS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.generate_lhs_sample" title="Link to this definition">¶</a></dt>
 <dd><p>generates LHS or LHSMDU sample</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dimension</strong> (<em>integer</em><em> of </em><em>dimension</em><em> of </em><em>input space</em>) – </p></li>
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
-<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em><em>, </em><em>default is 10</em>) – </p></li>
+<li><p><strong>dimension</strong> (<em>integer</em><em> of </em><em>dimension</em><em> of </em><em>input space</em>)</p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
+<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em><em>, </em><em>default is 10</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -154,13 +159,13 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.get_bounds_for_dimension">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">get_bounds_for_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">combi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_bounds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#get_bounds_for_dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.get_bounds_for_dimension" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">get_bounds_for_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">combi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_bounds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.get_bounds_for_dimension" title="Link to this definition">¶</a></dt>
 <dd><p>extract bounds for specific dimension</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>combi</strong> (<em>combination number</em><em> of </em><em>bounds</em><em>, </em><em>integer</em>) – </p></li>
-<li><p><strong>prev_bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
+<li><p><strong>combi</strong> (<em>combination number</em><em> of </em><em>bounds</em><em>, </em><em>integer</em>)</p></li>
+<li><p><strong>prev_bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -171,14 +176,15 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.handle_dim_1">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#handle_dim_1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.handle_dim_1" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.handle_dim_1" title="Link to this definition">¶</a></dt>
 <dd><p>handles sampling for dimension=1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
-<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>) – </p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
+<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>)</p></li>
+<li><p><strong>verbose</strong> (<em>show prints and more info</em><em> or </em><em>not</em><em>, </em><em>default=False</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -189,14 +195,15 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.handle_dim_2">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#handle_dim_2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.handle_dim_2" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.handle_dim_2" title="Link to this definition">¶</a></dt>
 <dd><p>handles sampling for dimension=2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
-<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>) – </p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
+<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>)</p></li>
+<li><p><strong>verbose</strong> (<em>show prints and more info</em><em> or </em><em>not</em><em>, </em><em>default=False</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -207,18 +214,19 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.handle_dim_greater_than_2">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_greater_than_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#handle_dim_greater_than_2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.handle_dim_greater_than_2" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_greater_than_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.handle_dim_greater_than_2" title="Link to this definition">¶</a></dt>
 <dd><p>handles sampling for dimension&gt;2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
-<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>) – </p></li>
-<li><p><strong>max_iter</strong> (<em>maximum number</em><em> of </em><em>total iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em>, </em><em>if does not find minimum number</em><em> of </em><em>samples after this</em><em>, </em><em>breaks</em>) – </p></li>
-<li><p><strong>max_iter_dim2</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2 to be feasible</em>) – </p></li>
-<li><p><strong>max_iter_dim3</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em> (</em><em>for dimension=4</em><em>)</em>) – </p></li>
-<li><p><strong>max_rej</strong> (<em>integer number</em><em> of </em><em>maximum allowed samples to be rejected</em>) – </p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
+<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>)</p></li>
+<li><p><strong>max_iter</strong> (<em>maximum number</em><em> of </em><em>total iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em>, </em><em>if does not find minimum number</em><em> of </em><em>samples after this</em><em>, </em><em>breaks</em>)</p></li>
+<li><p><strong>max_iter_dim2</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2 to be feasible</em>)</p></li>
+<li><p><strong>max_iter_dim3</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em> (</em><em>for dimension=4</em><em>)</em>)</p></li>
+<li><p><strong>max_rej</strong> (<em>integer number</em><em> of </em><em>maximum allowed samples to be rejected</em>)</p></li>
+<li><p><strong>verbose</strong> (<em>show prints and more info</em><em> or </em><em>not</em><em>, </em><em>default=False</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -232,20 +240,20 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.handle_dim_greater_than_3">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_greater_than_3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sum_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#handle_dim_greater_than_3"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.handle_dim_greater_than_3" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">handle_dim_greater_than_3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sum_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.handle_dim_greater_than_3" title="Link to this definition">¶</a></dt>
 <dd><p>handles sampling for dimension&gt;3</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
-<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>) – </p></li>
-<li><p><strong>max_iter</strong> (<em>maximum number</em><em> of </em><em>total iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em>, </em><em>if does not find minimum number</em><em> of </em><em>samples after this</em><em>, </em><em>breaks</em>) – </p></li>
-<li><p><strong>max_iter_dim3</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em> (</em><em>for dimension=4</em><em>)</em>) – </p></li>
-<li><p><strong>max_rej</strong> (<em>integer number</em><em> of </em><em>maximum allowed samples to be rejected</em>) – </p></li>
-<li><p><strong>sum_vec</strong> (<em>vector</em><em> of </em><em>sum</em><em> of </em><em>compatible sample1 and sample2</em>) – </p></li>
-<li><p><strong>sample1</strong> (<em>vector</em><em> of </em><em>feasible sample1</em>) – </p></li>
-<li><p><strong>sample2</strong> (<em>vector</em><em> of </em><em>feasible sample1</em>) – </p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
+<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em>)</p></li>
+<li><p><strong>max_iter</strong> (<em>maximum number</em><em> of </em><em>total iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em>, </em><em>if does not find minimum number</em><em> of </em><em>samples after this</em><em>, </em><em>breaks</em>)</p></li>
+<li><p><strong>max_iter_dim3</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em> (</em><em>for dimension=4</em><em>)</em>)</p></li>
+<li><p><strong>max_rej</strong> (<em>integer number</em><em> of </em><em>maximum allowed samples to be rejected</em>)</p></li>
+<li><p><strong>sum_vec</strong> (<em>vector</em><em> of </em><em>sum</em><em> of </em><em>compatible sample1 and sample2</em>)</p></li>
+<li><p><strong>sample1</strong> (<em>vector</em><em> of </em><em>feasible sample1</em>)</p></li>
+<li><p><strong>sample2</strong> (<em>vector</em><em> of </em><em>feasible sample1</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -260,18 +268,18 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.one_constrained_sampling">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">one_constrained_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LHS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#one_constrained_sampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.one_constrained_sampling" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">one_constrained_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LHS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter_dim3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.one_constrained_sampling" title="Link to this definition">¶</a></dt>
 <dd><p>one_constrained_sampling for up to 4 dimensions, where samples should add up to 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em><em>, </em><em>default is 10</em>) – </p></li>
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
-<li><p><strong>max_iter</strong> (<em>maximum number</em><em> of </em><em>total iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em>, </em><em>if does not find minimum number</em><em> of </em><em>samples after this</em><em>, </em><em>breaks</em>) – </p></li>
-<li><p><strong>max_iter_dim2</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2 to be feasible</em>) – </p></li>
-<li><p><strong>max_iter_dim3</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em> (</em><em>for dimension=4</em><em>)</em>) – </p></li>
-<li><p><strong>max_rej</strong> (<em>integer number</em><em> of </em><em>maximum allowed samples to be rejected</em>) – </p></li>
+<li><p><strong>method</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be generated</em><em>, </em><em>default is 10</em>)</p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
+<li><p><strong>max_iter</strong> (<em>maximum number</em><em> of </em><em>total iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em>, </em><em>if does not find minimum number</em><em> of </em><em>samples after this</em><em>, </em><em>breaks</em>)</p></li>
+<li><p><strong>max_iter_dim2</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2 to be feasible</em>)</p></li>
+<li><p><strong>max_iter_dim3</strong> (<em>maximum number</em><em> of </em><em>iterations for dimension 1</em><em>,</em><em>2</em><em>,</em><em>3 to be feasible</em><em> (</em><em>for dimension=4</em><em>)</em>)</p></li>
+<li><p><strong>max_rej</strong> (<em>integer number</em><em> of </em><em>maximum allowed samples to be rejected</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -282,16 +290,16 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.one_constrained_sampling_wrapper">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">one_constrained_sampling_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#one_constrained_sampling_wrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.one_constrained_sampling_wrapper" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">one_constrained_sampling_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.one_constrained_sampling_wrapper" title="Link to this definition">¶</a></dt>
 <dd><p>select samples based on distance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>methodname</strong> (<em>string</em><em> of </em><em>method</em><em>, </em><em>LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
-<li><p><strong>dim</strong> (<em>dimension</em><em> of </em><em>input space</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be collected</em>) – </p></li>
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>lower and upper bounds</em>) – </p></li>
-<li><p><strong>max_rej</strong> (<em>maximum samples to be rejected</em>) – </p></li>
+<li><p><strong>methodname</strong> (<em>string</em><em> of </em><em>method</em><em>, </em><em>LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>dim</strong> (<em>dimension</em><em> of </em><em>input space</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be collected</em>)</p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>lower and upper bounds</em>)</p></li>
+<li><p><strong>max_rej</strong> (<em>maximum samples to be rejected</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -302,16 +310,16 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.sample_with_bound_permutations">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">sample_with_bound_permutations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#sample_with_bound_permutations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.sample_with_bound_permutations" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">sample_with_bound_permutations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rej</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.sample_with_bound_permutations" title="Link to this definition">¶</a></dt>
 <dd><p>computes samples with bound permutations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>prev_bounds</strong> (<em>list</em><em> of </em><em>lower and upper bounds</em><em>, </em><em>default None</em>) – </p></li>
-<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be collected</em><em>, </em><em>integer</em><em>, </em><em>default 10</em>) – </p></li>
-<li><p><strong>tol_norm</strong> (<em>tolerance for minimum distance if not all samples selected</em><em> (</em><em>all_select=False</em><em>)</em>) – </p></li>
-<li><p><strong>all_select</strong> (<em>boolean</em><em>, </em><em>if True all samples selected</em><em>, </em><em>if False num_select samples selected</em><em>, </em><em>default False CHANGE!!!</em>) – </p></li>
-<li><p><strong>num_select</strong> (<em>integer</em><em>, </em><em>number</em><em> of </em><em>samples to be selected if boolean=False</em><em>, </em><em>default 4 CHANGE!!!</em>) – </p></li>
+<li><p><strong>prev_bounds</strong> (<em>list</em><em> of </em><em>lower and upper bounds</em><em>, </em><em>default None</em>)</p></li>
+<li><p><strong>n_samp</strong> (<em>number</em><em> of </em><em>samples to be collected</em><em>, </em><em>integer</em><em>, </em><em>default 10</em>)</p></li>
+<li><p><strong>tol_norm</strong> (<em>tolerance for minimum distance if not all samples selected</em><em> (</em><em>all_select=False</em><em>)</em>)</p></li>
+<li><p><strong>all_select</strong> (<em>boolean</em><em>, </em><em>if True all samples selected</em><em>, </em><em>if False num_select samples selected</em><em>, </em><em>default False CHANGE!!!</em>)</p></li>
+<li><p><strong>num_select</strong> (<em>integer</em><em>, </em><em>number</em><em> of </em><em>samples to be selected if boolean=False</em><em>, </em><em>default 4 CHANGE!!!</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -322,13 +330,13 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.scale">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.scale" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.scale" title="Link to this definition">¶</a></dt>
 <dd><p>scales the sample to be within the bounds</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample</strong> (<em>vector</em><em> of </em><em>sample</em>) – </p></li>
-<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
+<li><p><strong>sample</strong> (<em>vector</em><em> of </em><em>sample</em>)</p></li>
+<li><p><strong>bounds</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -339,13 +347,13 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.scale_data">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">scale_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#scale_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.scale_data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">scale_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.scale_data" title="Link to this definition">¶</a></dt>
 <dd><p>scales data via standard scaling</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>numpy array</em><em> or </em><em>pandas dataframe</em><em> of </em><em>data</em>) – </p></li>
-<li><p><strong>decimals</strong> (<em>decimals to be rounded to</em><em>, </em><em>integer</em>) – </p></li>
+<li><p><strong>data</strong> (<em>numpy array</em><em> or </em><em>pandas dataframe</em><em> of </em><em>data</em>)</p></li>
+<li><p><strong>decimals</strong> (<em>decimals to be rounded to</em><em>, </em><em>integer</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -356,18 +364,18 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.select_samples">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">select_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_scaled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_unscaled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">des_n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#select_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.select_samples" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">select_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_scaled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_unscaled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">des_n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.select_samples" title="Link to this definition">¶</a></dt>
 <dd><p>selects samples based on distance from data set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data_scaled</strong> (<em>scaled data</em><em>, </em><em>numpy array</em>) – </p></li>
-<li><p><strong>samples</strong> (<em>array</em><em> of </em><em>samples</em>) – </p></li>
-<li><p><strong>samples_unscaled</strong> (<em>array</em><em> of </em><em>unscaled samples</em>) – </p></li>
-<li><p><strong>tol</strong> (<em>tolerance for minimum distance to data</em><em>, </em><em>float</em>) – </p></li>
-<li><p><strong>tol2</strong> (<em>tolerance for minimum distance to other already selected samples</em><em>, </em><em>float</em>) – </p></li>
-<li><p><strong>decimals</strong> (<em>decimals to round to</em><em>, </em><em>integer</em>) – </p></li>
-<li><p><strong>des_n_samp</strong> (<em>desired number</em><em> of </em><em>samples/experiments to be executed</em><em>, </em><em>default None</em>) – </p></li>
+<li><p><strong>data_scaled</strong> (<em>scaled data</em><em>, </em><em>numpy array</em>)</p></li>
+<li><p><strong>samples</strong> (<em>array</em><em> of </em><em>samples</em>)</p></li>
+<li><p><strong>samples_unscaled</strong> (<em>array</em><em> of </em><em>unscaled samples</em>)</p></li>
+<li><p><strong>tol</strong> (<em>tolerance for minimum distance to data</em><em>, </em><em>float</em>)</p></li>
+<li><p><strong>tol2</strong> (<em>tolerance for minimum distance to other already selected samples</em><em>, </em><em>float</em>)</p></li>
+<li><p><strong>decimals</strong> (<em>decimals to round to</em><em>, </em><em>integer</em>)</p></li>
+<li><p><strong>des_n_samp</strong> (<em>desired number</em><em> of </em><em>samples/experiments to be executed</em><em>, </em><em>default None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -383,18 +391,18 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.select_samples_diff_from_data">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">select_samples_diff_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_LHS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_LHSMDU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">des_n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#select_samples_diff_from_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.select_samples_diff_from_data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">select_samples_diff_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_LHS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_LHSMDU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">des_n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.select_samples_diff_from_data" title="Link to this definition">¶</a></dt>
 <dd><p>select samples based on distance from experimental data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>exp_data</strong> (<em>array</em><em> of </em><em>experimental data</em>) – </p></li>
-<li><p><strong>samples_LHS</strong> (<em>LHS samples array</em>) – </p></li>
-<li><p><strong>samples_LHSMDU</strong> (<em>LHSMDU samples array</em>) – </p></li>
-<li><p><strong>des_n_samp</strong> (<em>desired number</em><em> of </em><em>samples/experiments to be executed</em>) – </p></li>
-<li><p><strong>tol</strong> (<em>tolerance for minimum distance to data</em><em>, </em><em>float</em>) – </p></li>
-<li><p><strong>tol2</strong> (<em>tolerance for minimum distance to other already selected samples</em><em>, </em><em>float</em>) – </p></li>
-<li><p><strong>decimals</strong> (<em>decimals to round to</em><em>, </em><em>integer</em>) – </p></li>
+<li><p><strong>exp_data</strong> (<em>array</em><em> of </em><em>experimental data</em>)</p></li>
+<li><p><strong>samples_LHS</strong> (<em>LHS samples array</em>)</p></li>
+<li><p><strong>samples_LHSMDU</strong> (<em>LHSMDU samples array</em>)</p></li>
+<li><p><strong>des_n_samp</strong> (<em>desired number</em><em> of </em><em>samples/experiments to be executed</em>)</p></li>
+<li><p><strong>tol</strong> (<em>tolerance for minimum distance to data</em><em>, </em><em>float</em>)</p></li>
+<li><p><strong>tol2</strong> (<em>tolerance for minimum distance to other already selected samples</em><em>, </em><em>float</em>)</p></li>
+<li><p><strong>decimals</strong> (<em>decimals to round to</em><em>, </em><em>integer</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -411,13 +419,13 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.conditionedSampling.stack_samples">
-<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">stack_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/conditionedSampling.html#stack_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.conditionedSampling.stack_samples" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.conditionedSampling.</span></span><span class="sig-name descname"><span class="pre">stack_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.conditionedSampling.stack_samples" title="Link to this definition">¶</a></dt>
 <dd><p>stacks samples</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>samples</strong> (<em>vectors</em><em> of </em><em>samples</em>) – </p></li>
-<li><p><strong>dim</strong> (<em>integer</em><em> of </em><em>dimension</em>) – </p></li>
+<li><p><strong>samples</strong> (<em>vectors</em><em> of </em><em>samples</em>)</p></li>
+<li><p><strong>dim</strong> (<em>integer</em><em> of </em><em>dimension</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -428,15 +436,18 @@
 
 </section>
 <section id="src-plot-module">
-<h2>src.plot module<a class="headerlink" href="#src-plot-module" title="Permalink to this heading"></a></h2>
+<h2>src.plot module<a class="headerlink" href="#src-plot-module" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><span class="target" id="module-src.plot"></span><dl class="py function">
+<div><dl class="py function" id="module-src.plot">
 <dt class="sig sig-object py" id="src.plot.box_kdeplot_samples">
-<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">box_kdeplot_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/plot.html#box_kdeplot_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.plot.box_kdeplot_samples" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">box_kdeplot_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plot.box_kdeplot_samples" title="Link to this definition">¶</a></dt>
 <dd><p>generates distribution box kde subplots of samples</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>samples</strong> (<em>np array</em><em> of </em><em>samples nsamp x ncomponents</em>) – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<em>np array</em><em> of </em><em>samples nsamp x ncomponents</em>)</p></li>
+<li><p><strong>filename_eps</strong> (<em>string</em><em> of </em><em>path with eps filename</em>)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>Subplots showing box kde distributions</p>
@@ -446,11 +457,14 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.plot.distplot_samples">
-<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">distplot_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/plot.html#distplot_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.plot.distplot_samples" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">distplot_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plot.distplot_samples" title="Link to this definition">¶</a></dt>
 <dd><p>generates distribution kde plot of samples</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>samples</strong> (<em>np array</em><em> of </em><em>samples nsamp x ncomponents</em>) – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<em>np array</em><em> of </em><em>samples nsamp x ncomponents</em>)</p></li>
+<li><p><strong>filename_eps</strong> (<em>string</em><em> of </em><em>path with eps filename</em>)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>Distplot with distributions for different components in different colors</p>
@@ -460,14 +474,15 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.plot.plot_dimred_2dims_both_methods">
-<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">plot_dimred_2dims_both_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhs_samples_pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhsmdu_samples_pca</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/plot.html#plot_dimred_2dims_both_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.plot.plot_dimred_2dims_both_methods" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.plot.</span></span><span class="sig-name descname"><span class="pre">plot_dimred_2dims_both_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhs_samples_pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhsmdu_samples_pca</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.plot.plot_dimred_2dims_both_methods" title="Link to this definition">¶</a></dt>
 <dd><p>generates scatter plot of data conditioned LHS and conditioned LHSMDU samples</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>integer</em><em> of </em><em>dimension</em><em> of </em><em>input space</em>) – </p></li>
-<li><p><strong>lhs_samples</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>) – </p></li>
-<li><p><strong>lhsmdu_samples</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>) – </p></li>
+<li><p><strong>data</strong> (<em>integer</em><em> of </em><em>dimension</em><em> of </em><em>input space</em>)</p></li>
+<li><p><strong>lhs_samples</strong> (<em>list</em><em> of </em><em>upper and lower bounds</em>)</p></li>
+<li><p><strong>lhsmdu_samples</strong> (<em>string</em><em> of </em><em>method: LHS</em><em> or </em><em>LHSMDU</em>)</p></li>
+<li><p><strong>filename_eps</strong> (<em>string</em><em> of </em><em>path with eps filename</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -479,17 +494,45 @@
 </div></blockquote>
 </section>
 <section id="src-utils-module">
-<h2>src.utils module<a class="headerlink" href="#src-utils-module" title="Permalink to this heading"></a></h2>
+<h2>src.utils module<a class="headerlink" href="#src-utils-module" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><span class="target" id="module-src.utils"></span><dl class="py function">
+<div><dl class="py function" id="module-src.utils">
+<dt class="sig sig-object py" id="src.utils.apply_mixed_synthesis_constraint">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">apply_mixed_synthesis_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_val_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.apply_mixed_synthesis_constraint" title="Link to this definition">¶</a></dt>
+<dd><p>apply mixed synthesis constraints, components 0+2, 0+1, 1+2 in combination allowed, all as single componenent</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>all_val_samples</strong> (<em>np array</em><em> of </em><em>samples</em><em> of </em><em>dimension number</em><em> of </em><em>points x number</em><em> of </em><em>components</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>samples fulfilling specific synthesis constraints</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.apply_single_synthesis_constraint">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">apply_single_synthesis_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_val_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.apply_single_synthesis_constraint" title="Link to this definition">¶</a></dt>
+<dd><p>apply single synthesis constraints, sets maximum=1 and rest=0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>all_val_samples</strong> (<em>np array</em><em> of </em><em>samples</em><em> of </em><em>dimension number</em><em> of </em><em>points x number</em><em> of </em><em>components</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 1 samples</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="src.utils.save_to_csv">
-<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">save_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils.html#save_to_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.save_to_csv" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">save_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.save_to_csv" title="Link to this definition">¶</a></dt>
 <dd><p>writes samples to csv file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>file path e.g. Path</em><em>(</em><em>'Outputs/LHS_with_new_permutations_correct_suggestions_allselected_imp_ext_subprobs_improve.csv'</em><em>)</em>) – </p></li>
-<li><p><strong>samples</strong> (<em>pandas dataframe with samples nsamp x ncomponents</em>) – </p></li>
+<li><p><strong>filepath</strong> (<em>file path e.g. Path</em><em>(</em><em>'Outputs/LHS_with_new_permutations_correct_suggestions_allselected_imp_ext_subprobs_improve.csv'</em><em>)</em>)</p></li>
+<li><p><strong>samples</strong> (<em>pandas dataframe with samples nsamp x ncomponents</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -498,10 +541,30 @@
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.select_des_n_samp_random_pts">
+<span class="sig-prename descclassname"><span class="pre">src.utils.</span></span><span class="sig-name descname"><span class="pre">select_des_n_samp_random_pts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_val_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">des_n_samp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.select_des_n_samp_random_pts" title="Link to this definition">¶</a></dt>
+<dd><p>choose des_n_samp random points from all samples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>all_val_samples</strong> (<em>np array</em><em> of </em><em>samples</em><em> of </em><em>dimension number</em><em> of </em><em>points x number</em><em> of </em><em>components</em>)</p></li>
+<li><p><strong>des_n_samp</strong> (<em>number</em><em> of </em><em>desired selected random points</em><em>, </em><em>default = 15</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>tol_samples</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np array of reduced samples of length des_n_samp</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div></blockquote>
 </section>
 <section id="module-src">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Link to this heading">¶</a></h2>
 </section>
 </section>
 
