@@ -41,7 +41,7 @@ Note: if it does not succeed the first time, try to rerun:
 ### Examples and Tutorials
 
 The example problems are in the examples subfolder at https://github.com/AMDatIMDEA/castro/examples.
-
+The data in the data folder was provided by José Hobson and De-Yi Wang (IMDEA Materials Institute).
 <br>
 
 ## License
