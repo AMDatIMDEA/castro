@@ -68,7 +68,7 @@ class CustomInstallCommand(install):
         # Run the standard install command
         install.run(self)
 
-with open('README.md') as readme_file:
+with open('Readme.md') as readme_file:
     readme = readme_file.read()
 
 #with open('HISTORY.rst') as history_file:
