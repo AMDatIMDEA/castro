@@ -4,8 +4,10 @@
 # author: Christina Schenk
 
 import numpy as np
+from scipy.spatial.distance import cdist
 
-def save_to_csv(filepath, samples):
+def save_to_csv(filepath,
+                samples):
     """
     writes samples to csv file
 
@@ -22,6 +24,7 @@ def save_to_csv(filepath, samples):
     filepath.parent.mkdir(parents=True, exist_ok=True)
     samples.to_csv(filepath)
 
+    
 #################################
 ###Synthesis constraints#########
 #################################
@@ -46,6 +49,7 @@ def apply_single_synthesis_constraint(all_val_samples):
             if k!=j3:
                 all_val_samples[i,k] = 0 
     return all_val_samples
+
 
 def apply_mixed_synthesis_constraint(all_val_samples):
     """
@@ -92,7 +96,8 @@ def apply_mixed_synthesis_constraint(all_val_samples):
     return all_val_samples   
     
 
-def select_des_n_samp_random_pts(all_val_samples, des_n_samp=15):
+def select_des_n_samp_random_pts(all_val_samples,
+                                 des_n_samp=15):
     """
     choose des_n_samp random points from all samples
     
@@ -111,3 +116,39 @@ def select_des_n_samp_random_pts(all_val_samples, des_n_samp=15):
                                   size=des_n_samp)
     tol_samples = all_val_samples[random_indices]
     return tol_samples
+
+
+def select_most_uniform_samples(samples, num_samples=90):
+    """
+    Select a subset of samples that maximizes uniformity using pairwise distance.
+
+    Parameters:
+    -----------
+    samples : np.array
+        Array of all samples (shape: n_samples x n_dimensions).
+    num_samples : int
+        Number of samples to select.
+
+    Returns:
+    --------
+    uniform_samples : np.array
+        Array of selected samples (shape: num_samples x n_dimensions).
+    """
+    # Initialize with a random sample
+    np.random.seed(42)  # Set seed for reproducibility
+    selected_indices = [np.random.choice(len(samples))]
+
+    # Iteratively add points that maximize minimum pairwise distance
+    while len(selected_indices) < num_samples:
+        remaining_indices = [i for i in range(len(samples)) if i not in selected_indices]
+        current_samples = samples[selected_indices]
+
+        # Compute distances from remaining points to selected points
+        distances = cdist(samples[remaining_indices], current_samples)
+
+        # Find the point with the maximum minimum distance to selected points
+        min_distances = np.min(distances, axis=1)
+        best_index = remaining_indices[np.argmax(min_distances)]
+        selected_indices.append(best_index)
+
+    return samples[selected_indices]

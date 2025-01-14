@@ -27,7 +27,8 @@ import seaborn as sns
 #### Latin Hypercube sampling on domain with variables summing up to 1: Sequentially and permutations such that condition holds (similar to Petelet et al (2010) but there for inequality constraints): 
 
 
-def scale(sample, bounds):
+def scale(sample,
+          bounds):
     """ 
     scales the sample to be within the bounds
     
@@ -43,7 +44,8 @@ def scale(sample, bounds):
     return qmc.scale(sample, bounds[:][0], bounds[:][1])
 
 
-def clip_and_scale(sample, bounds):
+def clip_and_scale(sample,
+                   bounds):
     """
     clips and scales the sample to be within the bounds
     
@@ -59,7 +61,11 @@ def clip_and_scale(sample, bounds):
     return np.clip(sample, bounds[:][0], bounds[:][1])
 
 
-def generate_lhs_sample(dimension, bounds, method="LHS", n_samp=10):
+def generate_lhs_sample(dimension,
+                        bounds,
+                        rs,
+                        method="LHS",
+                        n_samp=10):
     """
     generates LHS or LHSMDU sample
         
@@ -67,6 +73,7 @@ def generate_lhs_sample(dimension, bounds, method="LHS", n_samp=10):
     ----------
     dimension: integer of dimension of input space
     bounds: list of upper and lower bounds
+    rs: random seed, default 1234
     method: string of method: LHS or LHSMDU
     n_samp: number of samples to be generated, default is 10
     
@@ -76,17 +83,21 @@ def generate_lhs_sample(dimension, bounds, method="LHS", n_samp=10):
     
     """
     if method == "LHS":
-        sampler_new = qmc.LatinHypercube(d=dimension)
+        sampler_new = qmc.LatinHypercube(d=dimension, seed=rs)
         sample = sampler_new.random(n=n_samp)
     elif method == "LHSMDU":
-        sample = lhsmdu.sample(dimension, n_samp).transpose()
+        sample = lhsmdu.sample(dimension, n_samp, randomSeed=rs).transpose()
     else:
         raise ValueError("Invalid method. Please specify 'LHS' or 'LHSMDU'.")
 
     return scale(sample, bounds)
 
 
-def handle_dim_1(bounds, method, n_samp, verbose=False):
+def handle_dim_1(bounds,
+                 method,
+                 n_samp,
+                 rs,
+                 verbose=False):
     """
     handles sampling for dimension=1 
         
@@ -95,6 +106,7 @@ def handle_dim_1(bounds, method, n_samp, verbose=False):
     bounds: list of upper and lower bounds
     method: string of method: LHS or LHSMDU
     n_samp: number of samples to be generated
+    rs: random seed, default 1234
     verbose: show prints and more info or not, default=False
     
     Returns
@@ -102,11 +114,15 @@ def handle_dim_1(bounds, method, n_samp, verbose=False):
     feasible samples
     """
     x1_lb, x1_ub = bounds[0]
-    sample1 = generate_lhs_sample(1, np.array([x1_lb, x1_ub]), method, n_samp)
+    sample1 = generate_lhs_sample(1, np.array([x1_lb, x1_ub]), rs,  method, n_samp)
     return sample1
 
 
-def handle_dim_2(bounds, method, n_samp, verbose=False):
+def handle_dim_2(bounds,
+                 method,
+                 n_samp,
+                 rs,
+                 verbose=False):
     """
     handles sampling for dimension=2 
         
@@ -115,6 +131,7 @@ def handle_dim_2(bounds, method, n_samp, verbose=False):
     bounds: list of upper and lower bounds
     method: string of method: LHS or LHSMDU
     n_samp: number of samples to be generated
+    rs: random seed, default 1234
     verbose: show prints and more info or not, default=False
     
     Returns
@@ -124,13 +141,21 @@ def handle_dim_2(bounds, method, n_samp, verbose=False):
     x1_lb, x1_ub = bounds[0]
     x2_lb, x2_ub = bounds[1]
 
-    sample1 = generate_lhs_sample(1, np.array([x1_lb, x1_ub]), method, n_samp)
+    sample1 = generate_lhs_sample(1, np.array([x1_lb, x1_ub]), rs, method, n_samp)
     sample2 = clip_and_scale(1.0 - sample1, np.array([x2_lb, x2_ub]))
 
     return sample1, sample2
 
 
-def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, max_iter_dim3, max_rej, verbose=False):
+def handle_dim_greater_than_2(bounds,
+                              method,
+                              n_samp,
+                              max_iter,
+                              max_iter_dim2,
+                              max_iter_dim3,
+                              max_rej,
+                              rs,
+                              verbose=False):
     """
     handles sampling for dimension>2 
         
@@ -143,6 +168,7 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
     max_iter_dim2: maximum number of iterations for dimension 1,2 to be feasible
     max_iter_dim3: maximum number of iterations for dimension 1,2,3 to be feasible (for dimension=4)
     max_rej: integer number of maximum allowed samples to be rejected
+    rs: random seed, default 1234
     verbose: show prints and more info or not, default=False
     
     Returns
@@ -154,8 +180,11 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
     infeasible = True
     l = 0
     l1 = 0
-    x1_lb, x1_ub = bounds[0]
-    x2_lb, x2_ub = bounds[1]
+    x1_lb = bounds[0][0]
+    x1_ub = bounds[0][1]
+    x2_lb = bounds[1][0]
+    x2_ub = bounds[1][1]
+
     while infeasible:
         if l > max_iter:
             print("No feasible sample found after " + str(l) + " iterations. Please increase max_rej, max_iter or check your bounds to find a feasible sample.")
@@ -164,14 +193,14 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
         a_ind = []
         A = []
         B = []
-        sample1 = generate_lhs_sample(1, np.array([x1_lb, x1_ub]), method, n_samp)
-        sample2 = generate_lhs_sample(1, np.array([x2_lb, x2_ub]), method, n_samp)
+        sample1 = generate_lhs_sample(1, np.array([x1_lb, x1_ub]), rs, method, n_samp)
+        sample2 = generate_lhs_sample(1, np.array([x2_lb, x2_ub]), rs, method, n_samp)
         for i in range(len(sample1)):
             for k in range(len(sample2)):
                 Sumsamp[i, k] = sum(sample1[i], sample2[k])
                 if 0 < Sumsamp[i, k] <= 1.:
                     C_1[i, k] = 1
-                    a_ind.append((i, k))
+                    a_ind.append(tuple((i, k)))
                     if i not in A and k not in B:
                         A.append(i)
                         B.append(k)
@@ -194,11 +223,11 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
             else:
                 notA = []
                 notB = []
-                for k in range(n_samp):
-                    if k not in A:
-                        notA.append(k)
-                    if k not in B:
-                        notB.append(k)
+                for ind in range(n_samp):
+                    if ind not in A:
+                        notA.append(ind)
+                    if ind not in B:
+                        notB.append(ind)
                 count1=0
                 counter_pair1=0
                 for m in notA:
@@ -215,7 +244,7 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
                                 print("get new sample")
                             break
 
-                    el0list = [i for i, (v,*_) in enumerate(a_ind) if v==m]
+                    el0list = [ik for ik, (v,*_) in enumerate(a_ind) if v==m]
                     if len(el0list)>0:
                         #choose random tuple from that list:
                         chosentuple = np.random.choice(range(len(el0list)))
@@ -246,15 +275,49 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
                             sample2 = sample2[B]
                             sum_vec = np.add(sample1, sample2)
                             infeasible = False
-                        
+        
         l1 += 1
 
     del C_1
     del Sumsamp
     del a_ind
+        
+    if infeasible == False and dim==3:
+        sample3 = np.zeros((len(sample1), 1))
+        for i in range(len(sample1)):
+            sample3[i] = 1.0-(sample1[i]+sample2[i])
+            if np.any(sample3>bounds[2][1]) or np.any(sample3<bounds[2][0]):
+                rej_list = [] 
+                keep_list = []
+                for i in range(len(sample3)):
+                    if sample3[i]>bounds[2][1] or sample3[i]<bounds[2][0]:
+                        if verbose:
+                            print("reject because exceeding bounds")
+                            print("index exceeding bounds", i)
+                        rej_list.append(i)
+                    else:  
+                        keep_list.append(i)
+                if len(rej_list)>n_samp-max_rej:
+                    if verbose:
+                        print("Warning:", len(rej_list), "samples were rejected because they were not within the bounds.") 
+                sample1 = sample1[keep_list]
+                sample2 = sample2[keep_list]
+                sample3 = sample3[keep_list]
+        del A
+        del B
+        if verbose:
+            print("sample1", sample1)
+            print("sample2", sample2)
+            print("sample3", sample3)
+            print("Sum all", sample1+sample2+sample3)
 
+        end = time.time()
+        if verbose:
+            print("The conditioned " + str(method) + " algorithm took ", end-start, "CPUs")
+        return sample1, sample2, sample3 
+    
     if dim > 3:
-        infeasible1, sample1, sample2, sample3 = handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, max_rej, sum_vec, sample1, sample2)
+        infeasible1, sample1, sample2, sample3 = handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, max_rej, sum_vec, sample1, sample2, rs)
         l += 1
         if infeasible == False and infeasible1 == False:
             sample4 = np.zeros((len(sample1), 1))
@@ -280,6 +343,7 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
                 sample2 = sample2[keep_list]
                 sample3 = sample3[keep_list]
                 sample4 = sample4[keep_list]
+ 
             if verbose:
                 print("sample1", sample1)
                 print("sample2", sample2)
@@ -291,50 +355,28 @@ def handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, m
             if verbose:
                 print("The conditioned " + str(method) + " algorithm took ", end-start, "CPUs")
             return sample1, sample2, sample3, sample4
-    
         
-    if infeasible == False and dim==3:
-        sample3 = np.zeros((len(sample1), 1))
-        for i in range(len(sample1)):
-            sample3[i] = 1.0-(sample1[i]+sample2[i])
-            if np.any(sample3>bounds[2][1]) or np.any(sample3<bounds[2][0]):
-                rej_list = [] 
-                keep_list = []
-                for i in range(len(sample3)):
-                    if sample3[i]>bounds[2][1] or sample3[i]<bounds[2][0]:
-                        if verbose:
-                            print("reject because exceeding bounds")
-                            print("index exceeding bounds", i)
-                        rej_list.append(i)
-                    else:  
-                        keep_list.append(i)
-                if len(rej_list)>n_samp-max_rej:
-                    if verbose:
-                        print("Warning:", len(rej_list), "samples were rejected because they were not within the bounds.") 
-                sample1 = sample1[keep_list]
-                sample2 = sample2[keep_list]
-                sample3 = sample3[keep_list]
-        if verbose:
-            print("sample1", sample1)
-            print("sample2", sample2)
-            print("sample3", sample3)
-            print("Sum all", sample1+sample2+sample3)
+        del C_2
+        del Sumsamp2
+        del A
+        del B
+        del C
+        del D
+        del c_ind
 
-        end = time.time()
-        if verbose:
-            print("The conditioned " + str(method) + " algorithm took ", end-start, "CPUs")
-        return sample1, sample2, sample3
-    
-    del C_2
-    del Sumsamp2
-    del A
-    del B
-    del C
-    del D
-    del c_ind
 
     
-def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, max_rej, sum_vec, sample1, sample2, verbose=False):
+def handle_dim_greater_than_3(bounds,
+                              method,
+                              n_samp,
+                              max_iter,
+                              max_iter_dim3,
+                              max_rej,
+                              sum_vec,
+                              sample1,
+                              sample2,
+                              rs,
+                              verbose=False):
     """
     handles sampling for dimension>3
         
@@ -349,6 +391,8 @@ def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, m
     sum_vec: vector of sum of compatible sample1 and sample2
     sample1: vector of feasible sample1 
     sample2: vector of feasible sample1
+    rs: random seed, default 1234
+    verbose: show prints and more info or not, default=False
     
     Returns
     -------
@@ -362,7 +406,7 @@ def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, m
     l2 = 0
     
     while infeasible1:
-        sample3 = generate_lhs_sample(1, np.array([x3_lb, x3_ub]), method, n_samp)
+        sample3 = generate_lhs_sample(1, np.array([x3_lb, x3_ub]), rs, method, n_samp)
         Sumsamp2 = np.zeros((n_samp,n_samp)) 
         C_2 = np.zeros((n_samp, n_samp))
         c_ind = []
@@ -463,19 +507,29 @@ def handle_dim_greater_than_3(bounds, method, n_samp, max_iter, max_iter_dim3, m
     return infeasible1, sample1, sample2, sample3
                             
                         
-def one_constrained_sampling(method="LHS", n_samp=10, bounds=None, max_iter=60, max_iter_dim2=60, max_iter_dim3=60, max_rej=None, verbose=False):
+def one_constrained_sampling(n_samp,
+                             method="LHS",
+                             bounds=None,
+                             max_iter=60,
+                             max_iter_dim2=60,
+                             max_iter_dim3=60,
+                             max_rej=None,
+                             rs=None,
+                             verbose=False):
     """
     one_constrained_sampling for up to 4 dimensions, where samples should add up to 1
         
     Parameters
     ----------
+    n_samp: number of samples to be generated
     method: string of method: LHS or LHSMDU
-    n_samp: number of samples to be generated, default is 10
     bounds: list of upper and lower bounds
     max_iter: maximum number of total iterations for dimension 1,2,3 to be feasible, if does not find minimum number of samples after this, breaks
     max_iter_dim2: maximum number of iterations for dimension 1,2 to be feasible
     max_iter_dim3: maximum number of iterations for dimension 1,2,3 to be feasible (for dimension=4)
     max_rej: integer number of maximum allowed samples to be rejected
+    rs: random seed, default 1234
+    verbose: show prints and more info or not, default=False
     
     Returns
     -------
@@ -489,20 +543,20 @@ def one_constrained_sampling(method="LHS", n_samp=10, bounds=None, max_iter=60, 
     dim = len(bounds)
 
     if dim == 1:
-        return handle_dim_1(bounds, method, n_samp, verbose)
+        return handle_dim_1(bounds, method, n_samp, rs, verbose)
 
     elif dim == 2:
-        return handle_dim_2(bounds, method, n_samp, verbose)
+        return handle_dim_2(bounds, method, n_samp, rs, verbose)
 
     elif dim > 2:
-        return handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, max_iter_dim3, max_rej, verbose)
+        return handle_dim_greater_than_2(bounds, method, n_samp, max_iter, max_iter_dim2, max_iter_dim3, max_rej, rs, verbose)
 
     
 #-------------------------------------------------------------------------------------------------#
 ### Collect samples for all permutations of bounds (all selected or subset of samples selected with checking for distance)
 
-
-def get_bounds_for_dimension(combi, prev_bounds):
+def get_bounds_for_dimension(combi,
+                             prev_bounds):
     """
     extract bounds for specific dimension
         
@@ -517,23 +571,29 @@ def get_bounds_for_dimension(combi, prev_bounds):
     """
     return [prev_bounds[ind] for ind in combi]
 
-def stack_samples(samples, dim):
-    """
-    stacks samples
+
+# def stack_samples(samples,
+#                   dim):
+#     """
+#     stacks samples
         
-    Parameters
-    ----------
-    samples: vectors of samples
-    dim: integer of dimension
+#     Parameters
+#     ----------
+#     samples: vectors of samples
+#     dim: integer of dimension
     
-    Returns
-    -------
-    stacked samples
-    """
-    return np.column_stack(samples)[:dim]
+#     Returns
+#     -------
+#     stacked samples
+#     """
+#     return np.column_stack(samples)[:dim]
 
 
-def select_samples(all_samples, val_samples_ord, tol_norm, num_select, all_select):
+def select_samples(all_samples,
+                   val_samples_ord,
+                   tol_norm,
+                   num_select,
+                   all_select):
     """
     select samples based on distance
         
@@ -560,7 +620,13 @@ def select_samples(all_samples, val_samples_ord, tol_norm, num_select, all_selec
                 
         return all_samples + selected_samples[-num_select:]
     
-def one_constrained_sampling_wrapper(methodname, dim, n_samp, bounds, max_rej):
+    
+def one_constrained_sampling_wrapper(methodname,
+                                     dim,
+                                     n_samp,
+                                     bounds,
+                                     max_rej,
+                                     rs):
     """
     select samples based on distance
         
@@ -571,95 +637,209 @@ def one_constrained_sampling_wrapper(methodname, dim, n_samp, bounds, max_rej):
     n_samp: number of samples to be collected
     bounds: list of lower and upper bounds
     max_rej: maximum samples to be rejected
+    rs: random seed, default 1234
     
     Returns
     -------
     one constrained feasible samples from routines for dim 2, 3, 4
     """
     if dim == 2:
-        return one_constrained_sampling(method=methodname, n_samp=n_samp, bounds=bounds, max_rej=max_rej)
+        return one_constrained_sampling(n_samp, method=methodname, bounds=bounds, max_rej=max_rej, rs=rs)
     elif dim == 3:
-        return one_constrained_sampling(method=methodname, n_samp=n_samp, bounds=bounds, max_rej=max_rej)
+        return one_constrained_sampling(n_samp, method=methodname, bounds=bounds, max_rej=max_rej, rs=rs)
     elif dim == 4:
-        return one_constrained_sampling(method=methodname, n_samp=n_samp, bounds=bounds, max_rej=max_rej)
+        return one_constrained_sampling(n_samp, method=methodname, bounds=bounds, max_rej=max_rej, rs=rs)
     elif dim > 4:
         print("This algorithm works for maximum 4 dimensions.")
         return None
 
-def sample_with_bound_permutations(prev_bounds=None, n_samp=10, tol_norm=1e-3, all_select=False, num_select=4, max_rej=None, dim=None, verbose=False):
+    
+def sample_with_bound_permutations(
+        prev_bounds, n_samp, tol_norm=1e-3, all_select=False, 
+        num_select=4, max_rej=None, dim=None, rs=1234, verbose=False):
     """
-    computes samples with bound permutations
-        
+    Computes samples with bound permutations.
+
     Parameters
     ----------
-    prev_bounds: list of lower and upper bounds, default None
-    n_samp: number of samples to be collected, integer, default 10
-    tol_norm: tolerance for minimum distance if not all samples selected (all_select=False)
-    all_select: boolean, if True all samples selected, if False num_select samples selected, default False CHANGE!!!
-    num_select: integer, number of samples to be selected if boolean=False, default 4 CHANGE!!!
-    
+    prev_bounds : list
+        List of lower and upper bounds for sampling.
+    n_samp : int
+        Number of samples to generate.
+    tol_norm : float, optional
+        Tolerance for minimum distance between samples.
+    all_select : bool, optional
+        Whether to select all samples or a fixed number.
+    num_select : int, optional
+        Number of samples to select if `all_select` is False.
+    max_rej : int, optional
+        Maximum number of rejections allowed during sampling.
+    dim : int
+        Dimensionality of the problem.
+    rs : int, optional
+        Random seed for reproducibility.
+    verbose : bool, optional
+        Whether to print verbose output.
+
     Returns
     -------
-    feasible samples with bound permutations
+    tuple
+        All feasible samples generated using two methods.
     """
-    if max_rej is None:
-        max_rej = n_samp//4
+    def get_permuted_bounds(combi, prev_bounds):
+        return [prev_bounds[idx] for idx in combi]
+
+    def stack_samples(samples, combi):
+        # Reorder samples based on permutation combination
+        stacked = np.zeros_like(samples)
+        for num, ind in enumerate(combi):
+            stacked[:, ind] = samples[:, num]
+        return stacked
+
+    def select_samps(existing_samples, new_samples, tol_norm, num_select):
+        dist_matrix = distance_matrix(existing_samples, new_samples)
+        selected_indices = [
+            j for j in range(len(new_samples))
+            if np.min(dist_matrix[:, j]) > tol_norm
+        ]
+        if not all_select:
+            selected_indices = sorted(
+                selected_indices, 
+                key=lambda idx: np.min(dist_matrix[:, idx]), 
+                reverse=True
+            )[:num_select]
+        return new_samples[selected_indices, :]
+
+    # Initialize
     start = time.time()
-    num_meth = 0
-    all_perms = []
-    all_perms += permutations(range(dim))
-    while num_meth < 2:
-        print("NUM_METH", num_meth, "running")
-        
+    all_perms = list(permutations(range(dim)))
+    if max_rej is None:
+        max_rej = n_samp // 4
+    all_val_samples, all_val_samples_mdu = None, None
+
+    # Iterate over methods
+    for num_meth in range(2):
+        methodname = "LHS" if num_meth == 0 else "LHSMDU"
         for perm_ind, combi in enumerate(all_perms):
-            bounds = get_bounds_for_dimension(combi, prev_bounds)
+            bounds = get_permuted_bounds(combi, prev_bounds)
             if verbose:
-                print("-----", perm_ind, "-----")
-                print(bounds)
-                print("--------------")
+                print(f"Permutation {perm_ind}: {combi}, Bounds: {bounds}")
 
-            methodname = "LHS" if num_meth == 0 else "LHSMDU"
-            
-            samples = one_constrained_sampling_wrapper(methodname, dim, n_samp, bounds, max_rej)
-            if verbose:
-                print(samples)
-            if samples is None:
-                break
+            samples = one_constrained_sampling(
+                method=methodname, n_samp=n_samp, bounds=bounds, max_rej=max_rej
+            )
 
+            # Convert samples to stacked format
+            samples_stacked = np.column_stack(samples)
             if perm_ind == 0:
                 if num_meth == 0:
-                    all_val_samples = stack_samples(samples, dim)
-                elif num_meth == 1:
-                    all_val_samples_mdu = stack_samples(samples, dim)
-            else:
-                val_samples_unord = stack_samples(samples, dim)
-                val_samples_ord = np.zeros_like(val_samples_unord)
-
-                for num, ind in enumerate(combi):
-                    val_samples_ord[:, ind] = val_samples_unord[:, num]
-
-                if all_select:
-                    all_val_samples = np.vstack((all_val_samples, val_samples_ord))
+                    all_val_samples = samples_stacked
                 else:
-                    all_val_samples = select_samples(all_val_samples, val_samples_ord, tol_norm, num_select, all_select)
+                    all_val_samples_mdu = samples_stacked
+            else:
+                val_samples_ord = stack_samples(samples_stacked, combi)
+                if num_meth == 0:
+                    if all_select:
+                        all_val_samples = np.vstack((all_val_samples, val_samples_ord))
+                    else:
+                        all_val_samples = np.vstack((
+                            all_val_samples, 
+                            select_samps(all_val_samples, val_samples_ord, tol_norm, num_select)
+                        ))
+                else:
+                    if all_select:
+                        all_val_samples_mdu = np.vstack((all_val_samples_mdu, val_samples_ord))
+                    else:
+                        all_val_samples_mdu = np.vstack((
+                            all_val_samples_mdu, 
+                            select_samps(all_val_samples_mdu, val_samples_ord, tol_norm, num_select)
+                        ))
 
-        end = time.time()
         if verbose:
-            print("The conditioned " + str(methodname) + " algorithm for all bounds permutations took ", end - start, "CPUs")
-        num_meth += 1
+            elapsed = time.time() - start
+            print(f"{methodname} method completed in {elapsed:.2f} seconds.")
 
-        if num_meth < 2:
-            print("###################New Method#######################")
-            if num_meth==1:
-                all_val_samples_0 = all_val_samples
-        else:
-            return all_val_samples_0, all_val_samples
-                
-
+    return all_val_samples, all_val_samples_mdu
+   
     
-### Select subset of samples that varies the most in terms of distance from the already collected data
+###Probabilistic version that runs sample_with_bound_permutations for multiple random seeds:
+def prob_sample_with_bound_permutations(
+    seeds=[42, 123, 7, 99, 56],
+    prev_bounds=None, 
+    n_samp=10, 
+    tol_norm=1e-3, 
+    all_select=False, 
+    num_select=4, 
+    max_rej=None, 
+    dim=None, 
+    verbose=False):
+    """
+    Perform probabilistic sampling with bound permutations for a list of seeds.
+    
+    Args:
+        seeds (list): List of random seeds. by default list of 5 random seeds.
+        prev_bounds (list): Previous bounds for sampling.
+        n_samp (int): Number of samples per seed.
+        tol_norm (float): Tolerance for the norm.
+        all_select (bool): Whether to select all points.
+        num_select (int): Number of selections to make.
+        max_rej (int): Maximum rejections allowed.
+        dim (int): Dimensionality of the sampling space.
+        rs: random seed, default 1234
+        verbose: show prints and more info or not, default=False
+        
+    Returns:
+        tuple: Contains the selected LHS samples, selected MDU samples, and their means and standard deviations.
+    """
+    all_val_samples = []
+    all_val_samples_mdu = []
+    # Generate the samples for each seed
+    for rs in seeds:
+        all_val_samplesi, all_val_samples_mdui = sample_with_bound_permutations(
+            prev_bounds=prev_bounds, n_samp=n_samp, tol_norm=tol_norm,
+            all_select=all_select, num_select=num_select, max_rej=max_rej,
+            dim=dim, rs=rs, verbose=False)
+        all_val_samples.append(np.array(all_val_samplesi))  # Convert to NumPy array
+        all_val_samples_mdu.append(np.array(all_val_samples_mdui))
+    # Calculate the minimum length across all seeds
+    min_len = min(len(samples) for samples in all_val_samples)
+    min_len_mdu = min(len(samples) for samples in all_val_samples_mdu)
 
-def scale_data(data, decimals=3):
+    # Initialize lists to store the sampled data
+    all_val_samples_selected = []
+    all_val_samples_mdu_selected = []
+
+    # Randomly select `min_len` samples for each seed
+    for k in range(len(seeds)):   
+        # Randomly sample rows
+        sampled_indices_lhs = np.random.choice(len(all_val_samples[k]), size=min_len, replace=False)
+        sampled_indices_mdu = np.random.choice(len(all_val_samples_mdu[k]), size=min_len_mdu, replace=False)
+
+        # Select the sampled rows
+        sampled_lhs = all_val_samples[k][sampled_indices_lhs, :]
+        sampled_mdu = all_val_samples_mdu[k][sampled_indices_mdu, :]
+
+        # Append the sampled data to the lists
+        all_val_samples_selected.append(sampled_lhs)
+        all_val_samples_mdu_selected.append(sampled_mdu)
+
+    # Stack the selected samples along a new axis (shape: num_seeds x min_len x n_dim)
+    all_val_samples_selected = np.stack(all_val_samples_selected, axis=0)
+    all_val_samples_mdu_selected = np.stack(all_val_samples_mdu_selected, axis=0)
+
+    # Compute the mean and standard deviation across the seeds (axis=0)
+    mean_samples = np.mean(all_val_samples_selected, axis=0)
+    std_samples = np.std(all_val_samples_selected, axis=0)
+    mean_samples_mdu = np.mean(all_val_samples_mdu_selected, axis=0)
+    std_samples_mdu = np.std(all_val_samples_mdu_selected, axis=0)
+
+    return (all_val_samples_selected, all_val_samples_mdu_selected, 
+            mean_samples, std_samples, mean_samples_mdu, std_samples_mdu)
+
+
+### Select subset of samples that varies the most in terms of distance from the already collected data
+def scale_data(data,
+               decimals=3):
     """
     scales data via standard scaling
         
@@ -675,7 +855,14 @@ def scale_data(data, decimals=3):
     scaler = StandardScaler().fit(data)
     return scaler.transform(np.around(data, decimals=decimals)), scaler
 
-def select_samples(data_scaled, samples, samples_unscaled, tol, tol2, decimals, des_n_samp=None):
+
+def select_samples(data_scaled,
+                   samples,
+                   samples_unscaled,
+                   tol,
+                   tol2,
+                   decimals=3,
+                   des_n_samp=None):
     """
     selects samples based on distance from data set
         
@@ -720,7 +907,14 @@ def select_samples(data_scaled, samples, samples_unscaled, tol, tol2, decimals, 
     
     return np.around(samples[selected_ind_list, :],decimals=decimals), np.around(samples_unscaled[selected_ind_list,:], decimals=decimals), selected_ind_list
 
-def select_samples_diff_from_data(exp_data, samples_LHS, samples_LHSMDU, des_n_samp=15, tol=5e-1, tol2=5e-1, decimals=3):
+
+def select_samples_diff_from_data(exp_data,
+                                  samples_LHS,
+                                  samples_LHSMDU,
+                                  des_n_samp=15,
+                                  tol=5e-1,
+                                  tol2=5e-1,
+                                  decimals=3):
     """
     select samples based on distance from experimental data
         

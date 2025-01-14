@@ -11,8 +11,6 @@
 #
 import os
 import sys
-import sphinx_rtd_theme
-
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.abspath(
     os.path.join(__file__, "../../src")
@@ -24,7 +22,7 @@ sys.path.append(os.path.abspath(
 project = 'CASTRO'
 copyright = '2024, Christina Schenk'
 author = 'Christina Schenk'
-release = '1.0.0'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -40,7 +38,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'alabaster'
-#html_static_path = ['_static']
+html_static_path = ['_static']
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -48,16 +46,11 @@ html_theme = 'alabaster'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinxcontrib.devhelp',
-    'sphinxcontrib.htmlhelp',
-    'sphinxcontrib.serializinghtml',
-    'sphinxcontrib.qthelp',
-    'sphinxcontrib.applehelp',
     'sphinx.ext.autodoc',
-    #'sphinx.ext.viewcode',
+    'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
-    'sphinxcontrib.jquery'
-    #'sphinx.ext.mathjax'
+    'sphinx_math_dollar',
+    'sphinx.ext.mathjax'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -75,9 +68,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ['_static']
+html_static_path = ['_static']
