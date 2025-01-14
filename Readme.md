@@ -8,8 +8,8 @@
 CASTRO is a Python package designed to ...
 
 - **Documentation:** - https://castro.readthedocs.io
-- **Examples and Tutorials** - https://github.com/AMDatIMDEA/castro/examples
-- **Source code:** - https://github.com/AMDatIMDEA/castro/src
+- **Examples and Tutorials** - https://github.com/AMDatIMDEA/castro/tree/main/examples
+- **Source code:** - https://github.com/AMDatIMDEA/castro/tree/main/src
 - **Bug reports:** - https://github.com/AMDatIMDEA/castro/issues
 
 It has the following functionality:
