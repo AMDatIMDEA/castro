@@ -143,7 +143,6 @@ def create_pairwise_scatterplots(data,
         colors = ['blue', 'orange', 'green']
     if labels is None:
         labels = ['Data', 'LHS', 'LHSMDU']
-
     # Create pairwise combinations of dimensions
     pairs = list(combinations(range(data.shape[1]), 2))
     total_plots = len(pairs)
@@ -182,6 +181,7 @@ def create_pairwise_scatterplots(data,
 def create_pairwise_distribution_plots_seaborn(data,
                                                lhs,
                                                lhsmdu,
+                                               markers=None,
                                                dim_labels=None,
                                                labels=None,
                                                filename_eps=""):
@@ -219,8 +219,10 @@ def create_pairwise_distribution_plots_seaborn(data,
     palette = {'Data': 'blue', 'LHS': 'orange', 'LHSMDU': 'green'}
 
     # Create pairplot
-    pairplot = sns.pairplot(combined_df, hue='Dataset', diag_kind='kde', palette=palette)
-    
+    if markers==None:
+        pairplot = sns.pairplot(combined_df, hue='Dataset', diag_kind='kde', palette=palette)
+    else: 
+        pairplot = sns.pairplot(combined_df, hue='Dataset', markers=markers, diag_kind='kde', palette=palette)
     if filename_eps:
         pairplot.savefig(filename_eps)
     plt.show()

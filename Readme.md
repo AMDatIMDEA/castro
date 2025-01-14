@@ -24,18 +24,19 @@ It has the following functionality:
 
 ## Installation
 
-You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO. First, create a virtual environment called castro_env via:
-    virtualenv castro_env
-Then activate the virtual environment by:
+You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO.
+- First, create a virtual environment called castro_env via:
+    - virtualenv castro_env
+- or:
+    - python3 -m venv castro_env
+- Then activate the virtual environment by:
     source castro_env/bin/activate
-Next you can install castro in this virtual environment:
-    cd <installation directory>
-    git clone https://github.com/AMDatIMDEA/castro.git
-    cd castro
-    python setup.py install
+- Next you can install castro in this virtual environment:
+    - cd <installation directory>
+    - git clone https://github.com/AMDatIMDEA/castro.git
+    - cd castro
+    - pip install -e .
 
-Note: if it does not succeed the first time, try to rerun:
-    python setup.py install
 
 
 ### Examples and Tutorials

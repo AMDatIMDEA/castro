@@ -1,12 +1,11 @@
 numpy
 scipy
 pandas
-random
-sklearn
+scikit-learn
 matplotlib
 lhsmdu
-time
-math
-itertools
-csv
 seaborn
+sphinx
+sphinx-rtd-theme
+sphinx-math-dollar
+jupyterlab
