@@ -24,7 +24,7 @@ It has the following functionality:
 
 ## Installation
 
-You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO.
+You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO. This was tested for python 3.13.
 - First, create a virtual environment called castro_env via:
     - virtualenv castro_env
 - or:
