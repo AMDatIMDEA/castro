@@ -8,4 +8,5 @@ seaborn
 sphinx
 sphinx-rtd-theme
 sphinx-math-dollar
+sympy
 jupyterlab

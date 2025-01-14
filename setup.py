@@ -31,12 +31,11 @@ setup(
     license='GPL V3',
     keywords='castro',
     #long_description=readme+'\n\n',
-    packages=find_packages(),
+    packages=find_packages(include=['castro', 'castro.*']),
     install_requires=read_requirements(),
-    url="https://gitlab.com/schenkch/ACBICI",
+    url="https://gitlab.com/AMDatIMDEA/castro",
     version='1.1.0',
     classifiers=[
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.13",
     ],
 )
