@@ -32,7 +32,7 @@ You can install CASTRO by simply cloning or downloading the repository, installi
 - Then activate the virtual environment by:
     source castro_env/bin/activate
 - Next you can install castro in this virtual environment:
-    - cd "<installation directory>"
+    - cd "installation_directory"
     - git clone https://github.com/AMDatIMDEA/castro.git
     - cd castro
     - pip install -e .
