@@ -5,7 +5,7 @@
 [![Documentation Status](https://readthedocs.org/projects/castro/badge/?version=latest)](https://castro.readthedocs.io/en/latest/py-modindex.html)
 
 
-CASTRO is a Python package designed to ...
+CASTRO (ConstrAined Sequential laTin hypeRcube sampling methOd) is a Python package designed to ...
 
 - **Documentation:** - https://castro.readthedocs.io
 - **Examples and Tutorials** - https://github.com/AMDatIMDEA/castro/tree/main/examples
@@ -23,14 +23,22 @@ It has the following functionality:
 <br>
 
 ## Installation
+Before installing CASTRO, you need to install git and a Python version (tested for 3.13).
 
 You can install CASTRO by simply cloning or downloading the repository, installing the packages in the requirements.txt file, and then installing CASTRO. This was tested for python 3.13.
-- First, create a virtual environment called castro_env via:
+
+First, create a virtual environment called castro_env via:
     - virtualenv castro_env
-- or:
+or:
     - python3 -m venv castro_env
-- Then activate the virtual environment by:
-    source castro_env/bin/activate
+Then activate the virtual environment by:
+    - source castro_env/bin/activate
+
+or with Anaconda (Windows) in the Anaconda prompt to create a virtual environment:
+- conda create -n myenv python=3.13
+Then to activate it:
+- conda activate myenv
+
 - Next you can install castro in this virtual environment:
     - cd "installation_directory"
     - git clone https://github.com/AMDatIMDEA/castro.git
@@ -57,4 +65,4 @@ GPL-3
 ## Please cite
 <br>
 
- - C. Schenk, M. Haranczyk (2024): CASTRO - Efficient constrained sampling method for material and chemical experimental design, ArXiV, (under review)
+ - C. Schenk, M. Haranczyk (2025): A Novel Constrained Sampling Method for Efficient Exploration in Materials and Chemical Mixture Design, Computational Materials Science, 252:113780, DOI: https://doi.org/10.1016/j.commatsci.2025.113780
