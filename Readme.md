@@ -5,7 +5,7 @@
 [![Documentation Status](https://readthedocs.org/projects/castro/badge/?version=latest)](https://castro.readthedocs.io/en/latest/py-modindex.html)
 
 
-CASTRO (ConstrAined Sequential laTin hypeRcube sampling methOd) is a Python package designed to ...
+CASTRO (ConstrAined Sequential laTin hypeRcube sampling methOd) is a Python package designed to facilitate experimental design space exploration under mixture and synthesis constraints. It is especially useful when additional experiments must be planned within a limited budget or previously collected data should be exploited.
 
 - **Documentation:** - https://castro.readthedocs.io
 - **Examples and Tutorials** - https://github.com/AMDatIMDEA/castro/tree/main/examples
@@ -13,12 +13,12 @@ CASTRO (ConstrAined Sequential laTin hypeRcube sampling methOd) is a Python pack
 - **Bug reports:** - https://github.com/AMDatIMDEA/castro/issues
 
 It has the following functionality:
- - sampling with space coverage for mixture and other synthesis constraints
- - uses divide and conquer approach for problem of dimension greater than 4, divide problem into subproblems and later reassemble
- - find n_des experiments to conduct for exploration of the design space under a limited budget and taking the previously collected experimental data into account
- - pre- and post-process data
- - calculation of uniformity metrics
- - visualization of results
+ - Sampling with space coverage for mixture and other synthesis constraints.
+ - Uses divide and conquer approach for problem of dimension greater than 4, divide problem into subproblems and then later reassemble the solutions.
+ - Find limited number of desired experiments to conduct for exploration of the design space under a limited budget while taking previously collected experimental data into account.
+ - Quantitative design quality metrics: central and warp-around discrepancy, and variance.
+ - Data pre- and post-processing.
+ - Visualization of results.
 
 <br>
 

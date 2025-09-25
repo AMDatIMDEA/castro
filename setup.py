@@ -34,7 +34,7 @@ setup(
     packages=find_packages(include=['castro', 'castro.*']),
     install_requires=read_requirements(),
     url="https://gitlab.com/AMDatIMDEA/castro",
-    version='1.1.0',
+    version='1.1.2',
     classifiers=[
         "Programming Language :: Python :: 3.13",
     ],
